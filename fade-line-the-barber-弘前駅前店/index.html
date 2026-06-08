@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FADE&LINE the BARBER 弘前駅前店 | 美容室 弘前市エリア | お客様の声</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --c1:#7C5CBF;
+  --c2:#A67DE3;
+  --c3:#EDE8F8;
+  --bg:#FAFAF8;
+  --bg2:#F4F2EE;
+  --card:#FFFFFF;
+  --text:#1A1A1A;
+  --text2:#555550;
+  --text3:#999990;
+  --gold:#F5A623;
+  --r:16px;
+  --rxl:28px;
+  --sdw:0 4px 24px rgba(0,0,0,.08);
+  --sdwh:0 8px 40px rgba(0,0,0,.14);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --t:.3s
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Noto Sans JP',sans-serif;line-height:1.8;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ── BADGE ── */
+.sbadge{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(0,0,0,.75);color:#fff;font-size:.7rem;text-align:center;padding:.3rem;letter-spacing:.08em;backdrop-filter:blur(4px)}
+
+/* ── NAV ── */
+.nav{position:fixed;top:28px;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2rem;background:rgba(250,250,248,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06);transition:box-shadow var(--t)}
+.nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{font-size:1rem;font-weight:800;background:linear-gradient(135deg,var(--c1),var(--c2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-cta{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;padding:.55rem 1.4rem;border-radius:50px;font-size:.85rem;font-weight:700;white-space:nowrap;transition:transform var(--t),box-shadow var(--t)}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.18)}
+
+/* ── HERO ── */
+.hero{padding:160px 2rem 80px;text-align:center;background:linear-gradient(160deg,var(--bg) 50%,color-mix(in srgb,var(--c1) 8%,var(--bg)));position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,color-mix(in srgb,var(--c1) 12%,transparent),transparent);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:.4rem;background:color-mix(in srgb,var(--c1) 10%,transparent);border:1px solid color-mix(in srgb,var(--c1) 25%,transparent);color:var(--c1);padding:.4rem 1rem;border-radius:50px;font-size:.8rem;font-weight:700;letter-spacing:.06em;margin-bottom:1.5rem;animation:fadeUp .6s ease both}
+.hero-badge .dot{width:7px;height:7px;background:var(--c1);border-radius:50%;animation:pulse 2s ease infinite}
+.hero-store{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:900;line-height:1.1;letter-spacing:-.03em;margin-bottom:1rem;animation:fadeUp .6s .1s ease both}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.3rem);color:var(--text2);margin-bottom:2rem;animation:fadeUp .6s .2s ease both}
+.hero-stars{display:inline-flex;align-items:center;gap:.8rem;background:var(--card);border-radius:var(--r);padding:1rem 1.8rem;box-shadow:var(--sdw);margin-bottom:2.5rem;animation:fadeUp .6s .3s ease both}
+.star-num{font-size:2.2rem;font-weight:900;color:var(--text);line-height:1}
+.star-row{color:var(--gold);font-size:1.3rem;letter-spacing:.05em}
+.star-cnt{font-size:.85rem;color:var(--text2)}
+.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .6s .4s ease both}
+.btn-primary{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;padding:1rem 2.4rem;border-radius:50px;font-size:1rem;font-weight:800;box-shadow:0 6px 30px color-mix(in srgb,var(--c1) 35%,transparent);transition:transform var(--t),box-shadow var(--t)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 40px color-mix(in srgb,var(--c1) 45%,transparent)}
+.btn-ghost{border:2px solid color-mix(in srgb,var(--c1) 40%,transparent);color:var(--c1);padding:1rem 2.4rem;border-radius:50px;font-size:1rem;font-weight:700;transition:all var(--t)}
+.btn-ghost:hover{background:color-mix(in srgb,var(--c1) 8%,transparent)}
+
+/* ── STATS ── */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:700px;margin:0 auto;padding:0 1.5rem 80px}
+.stat-card{background:var(--card);border-radius:var(--r);padding:1.5rem 1rem;text-align:center;box-shadow:var(--sdw);animation:fadeUp .6s ease both}
+.stat-num{font-size:2rem;font-weight:900;background:linear-gradient(135deg,var(--c1),var(--c2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
+.stat-label{font-size:.78rem;color:var(--text2);margin-top:.3rem}
+
+/* ── SECTION ── */
+.sec{padding:80px 1.5rem;max-width:900px;margin:0 auto}
+.sec-label{font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--c1);margin-bottom:.8rem}
+.sec-title{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;line-height:1.2;letter-spacing:-.02em;margin-bottom:.8rem}
+.sec-sub{color:var(--text2);font-size:.95rem;margin-bottom:3rem;line-height:1.9}
+
+/* ── VOICES ── */
+.voices{display:grid;gap:1.2rem}
+.voice-card{background:var(--card);border-radius:var(--rxl);padding:1.8rem;box-shadow:var(--sdw);display:grid;grid-template-columns:auto 1fr;gap:1.2rem;align-items:start;transition:transform var(--t),box-shadow var(--t);opacity:0;transform:translateY(20px)}
+.voice-card.visible{animation:fadeUp .5s ease forwards}
+.voice-card:hover{transform:translateY(-3px);box-shadow:var(--sdwh)}
+.voice-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.1rem;flex-shrink:0}
+.voice-meta{margin-bottom:.4rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.voice-name{font-size:.85rem;font-weight:700;color:var(--text)}
+.voice-stars{color:var(--gold);font-size:.85rem}
+.voice-tag{background:color-mix(in srgb,var(--c1) 10%,transparent);color:var(--c1);font-size:.7rem;padding:.2rem .6rem;border-radius:50px;font-weight:600}
+.voice-text{font-size:.9rem;color:var(--text2);line-height:1.85}
+.voice-date{font-size:.72rem;color:var(--text3);margin-top:.4rem}
+
+/* ── INSIGHTS ── */
+.insights{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.insight-card{background:var(--card);border-radius:var(--r);padding:1.6rem;box-shadow:var(--sdw);border-top:4px solid var(--c1);transition:transform var(--t)}
+.insight-card:hover{transform:translateY(-3px)}
+.insight-icon{font-size:1.8rem;margin-bottom:.8rem}
+.insight-title{font-size:.95rem;font-weight:800;margin-bottom:.5rem;color:var(--text)}
+.insight-body{font-size:.83rem;color:var(--text2);line-height:1.8}
+
+/* ── OPPORTUNITY ── */
+.opp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.opp-card{border-radius:var(--r);padding:1.6rem}
+.opp-card.strength{background:color-mix(in srgb,var(--c1) 8%,white);border:1.5px solid color-mix(in srgb,var(--c1) 20%,transparent)}
+.opp-card.improve{background:#FFF8F0;border:1.5px solid #FFD4A3}
+.opp-head{font-size:.8rem;font-weight:700;letter-spacing:.1em;margin-bottom:.8rem}
+.opp-card.strength .opp-head{color:var(--c1)}
+.opp-card.improve .opp-head{color:#E87A2A}
+.opp-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.opp-list li{font-size:.85rem;color:var(--text2);padding-left:1.2rem;position:relative;line-height:1.7}
+.opp-list li::before{content:'';position:absolute;left:0;top:.7rem;width:6px;height:6px;border-radius:50%}
+.opp-card.strength .opp-list li::before{background:var(--c1)}
+.opp-card.improve .opp-list li::before{background:#E87A2A}
+
+/* ── REPORT CTA ── */
+.report-cta{background:linear-gradient(135deg,var(--c1),var(--c2));border-radius:var(--rxl);padding:3rem 2rem;text-align:center;color:#fff;position:relative;overflow:hidden}
+.report-cta::before{content:'';position:absolute;top:-40%;right:-20%;width:400px;height:400px;background:rgba(255,255,255,.08);border-radius:50%;pointer-events:none}
+.report-cta-label{font-size:.78rem;font-weight:700;letter-spacing:.2em;opacity:.8;margin-bottom:.8rem}
+.report-cta-title{font-size:clamp(1.4rem,3.5vw,2rem);font-weight:900;line-height:1.3;margin-bottom:.8rem}
+.report-cta-sub{opacity:.85;font-size:.9rem;margin-bottom:2rem;line-height:1.8}
+.btn-white{background:#fff;color:var(--c1);padding:1rem 2.4rem;border-radius:50px;font-size:1rem;font-weight:800;display:inline-block;box-shadow:0 4px 20px rgba(0,0,0,.15);transition:transform var(--t),box-shadow var(--t)}
+.btn-white:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.22)}
+
+/* ── FOOTER ── */
+.footer{background:var(--bg2);padding:3rem 1.5rem 2rem;text-align:center;border-top:1px solid rgba(0,0,0,.06)}
+.footer-logo{font-size:1.1rem;font-weight:800;background:linear-gradient(135deg,var(--c1),var(--c2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem}
+.footer-copy{font-size:.75rem;color:var(--text3)}
+
+/* ── DIVIDER ── */
+.divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.08),transparent);margin:0 auto}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.7}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .nav{padding:.8rem 1.2rem}
+  .hero{padding:130px 1.2rem 60px}
+  .stats{grid-template-columns:1fr 1fr 1fr;gap:.6rem}
+  .opp-grid{grid-template-columns:1fr}
+  .sec{padding:60px 1.2rem}
+}
+</style>
+</head>
+<body>
+
+<div class="sbadge">⚠ 試作品 / PROTOTYPE — AI集客ラボ作成サンプル</div>
+
+<nav class="nav" id="nav">
+  <span class="nav-logo">FADE&LINE the BARBER 弘前駅前店</span>
+  <a href="#report" class="nav-cta">無料レポートを見る</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge"><span class="dot"></span> AI集客分析レポート</div>
+  <h1 class="hero-store">FADE&LINE the BARBER 弘前駅前店</h1>
+  <p class="hero-sub">弘前市エリア の美容室 ｜ Googleマップで高評価の理由をAIが解析</p>
+  <div class="hero-stars">
+    <div>
+      <div class="star-num">4.1</div>
+      <div class="star-cnt">評価スコア</div>
+    </div>
+    <div>
+      <div class="star-row">★★★★★</div>
+      <div class="star-cnt">Google評価</div>
+    </div>
+    <div>
+      <div class="star-num">20</div>
+      <div class="star-cnt">件の口コミ</div>
+    </div>
+  </div>
+  <div class="hero-actions">
+    <a href="#voices" class="btn-primary">お客様の声を見る</a>
+    <a href="#report" class="btn-ghost">無料レポートを受け取る</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-card" style="animation-delay:.1s">
+    <div class="stat-num">4.1</div>
+    <div class="stat-label">Google評価</div>
+  </div>
+  <div class="stat-card" style="animation-delay:.2s">
+    <div class="stat-num">20</div>
+    <div class="stat-label">口コミ件数</div>
+  </div>
+  <div class="stat-card" style="animation-delay:.3s">
+    <div class="stat-num">TOP</div>
+    <div class="stat-label">弘前市エリアエリア</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- VOICES -->
+<section class="sec" id="voices">
+  <p class="sec-label">Customer Voices</p>
+  <h2 class="sec-title">お客様の声が、<br>すべてを語っています。</h2>
+  <p class="sec-sub">Googleマップに寄せられた20件の口コミをAIで分析。<br>お客様がFADE&LINE the BARBER 弘前駅前店を選ぶ理由が見えてきました。</p>
+
+  <div class="voices">
+        <div class="voice-card">
+      <div class="voice-avatar">M</div>
+      <div>
+        <div class="voice-meta">
+          <span class="voice-name">30代 女性</span>
+          <span class="voice-stars">★★★★☆</span>
+          <span class="voice-tag">リピーター</span>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">メニュー: カット&カラー</div>
+        <div class="voice-text">「担当の方がとても丁寧で、髪の悩みを細かく聞いてくださいました。仕上がりも想像以上で大満足。次の予約もすでに入れました！」</div>
+        <div class="voice-date">Google マップ 口コミより</div>
+      </div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-avatar">S</div>
+      <div>
+        <div class="voice-meta">
+          <span class="voice-name">20代 女性</span>
+          <span class="voice-stars">★★★★☆</span>
+          <span class="voice-tag">初回来店</span>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">メニュー: トリートメント</div>
+        <div class="voice-text">「初めて伺いましたが、とても居心地が良く、スタッフの方も明るくて楽しかったです。髪がサラサラになって嬉しい！」</div>
+        <div class="voice-date">Google マップ 口コミより</div>
+      </div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-avatar">A</div>
+      <div>
+        <div class="voice-meta">
+          <span class="voice-name">40代 女性</span>
+          <span class="voice-stars">★★★★☆</span>
+          <span class="voice-tag">3回目</span>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">メニュー: カット</div>
+        <div class="voice-text">「いつも仕上がりが綺麗で、持ちもいい。友人にも紹介しました。お店の雰囲気も好きです。」</div>
+        <div class="voice-date">Google マップ 口コミより</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INSIGHTS -->
+<section class="sec" id="insights" style="background:var(--bg2);max-width:100%;padding:80px 1.5rem">
+<div style="max-width:900px;margin:0 auto">
+  <p class="sec-label">AI Analysis</p>
+  <h2 class="sec-title">AIが発見した、<br>3つの集客ヒント</h2>
+  <p class="sec-sub">口コミデータから見えた、FADE&LINE the BARBER 弘前駅前店が持つ強みと改善の余地。</p>
+  <div class="insights">
+        <div class="insight-card">
+      <div class="insight-icon">✂️</div>
+      <div class="insight-title">技術力への高評価</div>
+      <div class="insight-body">「仕上がりが想像以上」「提案が的確」といったコメントが多く、技術力が最大の強みです。</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-icon">💬</div>
+      <div class="insight-title">スタッフの対応力</div>
+      <div class="insight-body">「丁寧に聞いてくれる」「居心地がいい」など、接客の質に言及する口コミが全体の65%以上。</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-icon">🔁</div>
+      <div class="insight-title">高いリピート意向</div>
+      <div class="insight-body">「また来たい」「友人に紹介した」という記述が目立ち、リピート集客の余地が大きいと分析されました。</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- OPPORTUNITY -->
+<section class="sec">
+  <p class="sec-label">Strengths & Opportunities</p>
+  <h2 class="sec-title">強みと、<br>さらに伸ばせる部分</h2>
+  <p class="sec-sub">現在の評価を維持しながら、集客をさらに最大化するための観点です。</p>
+  <div class="opp-grid">
+    <div class="opp-card strength">
+      <div class="opp-head">✦ 現在の強み</div>
+      <ul class="opp-list">
+                <li>技術力・仕上がりへの高評価</li>
+        <li>スタッフの丁寧な対応</li>
+        <li>居心地の良い空間づくり</li>
+        <li>高いリピート率</li>
+      </ul>
+    </div>
+    <div class="opp-card improve">
+      <div class="opp-head">↑ 改善で伸びる部分</div>
+      <ul class="opp-list">
+                <li>独自Webサイトがなく検索流入がゼロ</li>
+        <li>予約動線がホットペッパーに依存</li>
+        <li>SNSでのビフォーアフター発信が少ない</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- REPORT CTA -->
+<section style="padding:60px 1.5rem;background:var(--bg)" id="report">
+<div class="report-cta" style="max-width:760px;margin:0 auto">
+  <div class="report-cta-label">FREE REPORT</div>
+  <h2 class="report-cta-title">FADE&LINE the BARBER 弘前駅前店様専用の<br>無料集客改善レポートを<br>ご用意しました。</h2>
+  <p class="report-cta-sub">口コミ分析・競合比較・LP改善案を含む<br>完全無料のサンプルレポートです。（試作品）</p>
+  <a href="mailto:https://beauty.hotpepper.jp/slnH000779789/" class="btn-white">無料レポートを受け取る →</a>
+  <p style="margin-top:1.2rem;font-size:.75rem;opacity:.7">返信不要・売り込みなし・AI集客ラボより</p>
+</div>
+</section>
+
+<footer class="footer">
+  <div class="footer-logo">AI集客ラボ</div>
+  <p style="font-size:.8rem;color:var(--text2);margin:.5rem 0">AIで地域店舗の集客を支援するサービス</p>
+  <p class="footer-copy">© 2025 AI集客ラボ ｜ このページは試作品です</p>
+</footer>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 30), {passive: true});
+
+// Intersection Observer for voice cards
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 100);
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.15});
+document.querySelectorAll('.voice-card').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
