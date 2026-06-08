@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>職人の畳 あおき | 石巻市エリアの畳店</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --c1:#3B4A2F;
+  --c2:#6B7C3E;
+  --tatami:#C8B882;
+  --bg:#F8F6F0;
+  --light:#F0EDE3;
+  --text1:#1A200E;
+  --text2:#2D3520;
+  --text3:#6B7558;
+  --white:#FFFFFF;
+  --r:10px;
+  --shadow:0 4px 24px rgba(40,50,10,.09);
+}
+body{font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;background:var(--bg);color:var(--text2);line-height:1.75}
+
+/* NAV */
+nav{background:var(--c1);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.1)}
+.nav-name{color:#fff;font-size:.95rem;font-weight:800;letter-spacing:.05em}
+.nav-cta{background:#fff;color:var(--c1);padding:.45rem 1.1rem;border-radius:5px;font-size:.82rem;font-weight:800;text-decoration:none}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,#0D1409 0%,var(--c1) 60%,#2D3A15 100%);color:#fff;padding:4rem 5vw 5rem;position:relative;overflow:hidden}
+.hero::before{content:'畳';position:absolute;right:-20px;bottom:-20px;font-size:clamp(140px,28vw,240px);font-weight:900;color:rgba(255,255,255,.035);line-height:1}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50px;background:var(--bg);clip-path:polygon(0 100%,100% 20%,100% 100%)}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:4px;padding:.28rem .85rem;font-size:.72rem;letter-spacing:.1em;margin-bottom:1rem}
+.hero h1{font-size:clamp(1.6rem,5vw,2.4rem);font-weight:900;line-height:1.2;margin-bottom:.6rem}
+.hero h1 em{font-style:normal;color:var(--tatami)}
+.hero-copy{font-size:.9rem;opacity:.82;margin-bottom:1.4rem}
+.hero-stars{display:flex;align-items:center;gap:.5rem;margin-bottom:2rem;font-size:.86rem}
+.stars{color:var(--tatami);letter-spacing:.06rem}
+.hero-features{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.8rem}
+.hero-feature{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:.25rem .75rem;border-radius:3px;font-size:.74rem}
+.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn-tatami{background:var(--tatami);color:var(--text1);font-weight:800;padding:.9rem 2rem;border-radius:5px;text-decoration:none;font-size:.92rem;transition:opacity .2s;box-shadow:0 4px 20px rgba(0,0,0,.2)}
+.btn-tatami:hover{opacity:.88}
+.btn-outline{border:1.5px solid rgba(255,255,255,.4);color:#fff;padding:.85rem 1.5rem;border-radius:5px;text-decoration:none;font-size:.88rem}
+
+/* SECTION */
+.section{padding:3rem 5vw}
+.label{font-size:.7rem;letter-spacing:.18em;font-weight:700;color:var(--c1);margin-bottom:.4rem}
+.title{font-size:clamp(1.2rem,3vw,1.6rem);font-weight:900;color:var(--text1);margin-bottom:.4rem}
+.sub{font-size:.85rem;color:var(--text3);margin-bottom:1.8rem}
+
+/* SERVICES */
+.service-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem}
+.service-card{background:var(--white);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+.service-header{background:linear-gradient(135deg,var(--c1),var(--c2));padding:1rem;color:#fff;text-align:center}
+.service-header .icon{font-size:1.8rem;margin-bottom:.3rem}
+.service-header h3{font-weight:800;font-size:.92rem}
+.service-body{padding:1rem}
+.service-price{color:var(--c1);font-weight:800;font-size:1rem;margin-bottom:.3rem}
+.service-desc{font-size:.78rem;color:var(--text3);line-height:1.6}
+
+/* CRAFTSMAN */
+.craftsman-bg{background:var(--light)}
+.craftsman-inner{display:flex;gap:1.5rem;align-items:flex-start;flex-wrap:wrap}
+.craftsman-photo{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));display:flex;align-items:center;justify-content:center;font-size:2.5rem;flex-shrink:0}
+.craftsman-info h3{font-weight:800;color:var(--text1);margin-bottom:.4rem;font-size:1rem}
+.craftsman-info p{font-size:.86rem;color:var(--text2);line-height:1.8}
+.craftsman-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
+.c-tag{background:var(--white);border:1px solid var(--tatami);color:var(--text2);font-size:.72rem;padding:.2rem .6rem;border-radius:3px;font-weight:600}
+
+/* REASONS */
+.reason-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.2rem}
+.reason-card{background:var(--white);border-radius:var(--r);padding:1.4rem;box-shadow:var(--shadow);border-left:4px solid var(--c1)}
+.reason-icon{font-size:1.7rem;margin-bottom:.5rem}
+.reason-title{font-weight:800;color:var(--text1);margin-bottom:.3rem;font-size:.95rem}
+.reason-body{font-size:.82rem;color:var(--text3);line-height:1.7}
+
+/* VOICES */
+.voice-list{display:flex;flex-direction:column;gap:1rem}
+.voice-card{background:var(--white);border-radius:var(--r);padding:1.3rem;box-shadow:var(--shadow);display:flex;gap:1rem;opacity:0;transform:translateX(-12px);transition:opacity .5s,transform .5s}
+.voice-card.visible{opacity:1;transform:none}
+.voice-avatar{width:44px;height:44px;border-radius:50%;background:var(--c1);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0}
+.voice-meta{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.3rem}
+.voice-name{font-weight:700;font-size:.86rem;color:var(--text1)}
+.voice-stars{color:#A0720A;font-size:.9rem}
+.voice-tag{background:var(--light);color:var(--c1);font-size:.7rem;padding:.15rem .5rem;border-radius:3px;font-weight:600}
+.voice-text{font-size:.86rem;color:var(--text2);line-height:1.7}
+.voice-date{font-size:.7rem;color:var(--text3);margin-top:.4rem}
+
+/* STRENGTHS */
+.str-list{display:flex;flex-direction:column;gap:.6rem}
+.str-item{display:flex;align-items:center;gap:.8rem;background:var(--white);padding:.8rem 1rem;border-radius:var(--r);box-shadow:var(--shadow)}
+.str-dot{width:10px;height:10px;background:var(--tatami);flex-shrink:0;border-radius:2px}
+.str-text{font-size:.88rem;font-weight:600;color:var(--text1)}
+
+/* FLOW */
+.flow-bg{background:var(--c1)}
+.flow-steps{display:flex;flex-direction:column;gap:1px}
+.flow-step{background:rgba(255,255,255,.07);padding:1.2rem 1.5rem;display:flex;gap:1rem;align-items:flex-start}
+.step-num{width:34px;height:34px;border-radius:50%;border:2px solid var(--tatami);color:var(--tatami);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.82rem;flex-shrink:0}
+.step-title{color:#fff;font-weight:700;margin-bottom:.2rem;font-size:.9rem}
+.step-body{color:rgba(255,255,255,.65);font-size:.82rem;line-height:1.6}
+
+/* CTA */
+.cta-section{background:var(--bg);text-align:center;padding:3rem 5vw;border-top:2px solid var(--tatami)}
+.cta-section h2{font-size:1.3rem;font-weight:800;color:var(--text1);margin-bottom:.4rem}
+.cta-section p{color:var(--text3);margin-bottom:1.5rem;font-size:.86rem}
+.cta-btn{display:inline-block;background:var(--c1);color:#fff;font-weight:800;padding:1rem 2.5rem;border-radius:5px;text-decoration:none;font-size:.95rem;box-shadow:var(--shadow)}
+
+footer{background:var(--text1);color:rgba(255,255,255,.45);padding:2rem 5vw;text-align:center;font-size:.76rem;line-height:2}
+footer strong{color:rgba(255,255,255,.8)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">🌿 職人の畳 あおき</div>
+  <a class="nav-cta" href="https://www.ekiten.jp/" target="_blank">お見積り・ご相談</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">石巻市エリア ・ 畳店</div>
+  <h1>職人の技で仕上げる、<br><em>本物の畳。</em></h1>
+  <p class="hero-copy">採寸から施工まで、すべて自社の職人が行います。い草の香り漂う、本物の畳をご自宅に。</p>
+  <div class="hero-stars">
+    <span class="stars">★★★★★</span>
+    <strong>4.3</strong>
+    <span style="opacity:.7">（口コミ 18件）</span>
+  </div>
+  <div class="hero-features">
+    <span class="hero-feature">📐 採寸・見積もり無料</span>
+    <span class="hero-feature">🚗 出張対応あり</span>
+    <span class="hero-feature">🌾 国産畳表あり</span>
+    <span class="hero-feature">🔄 表替え・新畳どちらも</span>
+  </div>
+  <div class="hero-btns">
+    <a class="btn-tatami" href="https://www.ekiten.jp/" target="_blank">無料見積もりを依頼する</a>
+    <a class="btn-outline" href="#services">サービスを見る</a>
+  </div>
+</div>
+
+<div class="section" id="services">
+  <div class="label">Services</div>
+  <div class="title">施工メニュー</div>
+  <div class="sub">和室のことならなんでもお任せください</div>
+  <div class="service-grid">
+        <div class="service-card"><div class="service-header"><div class="icon">🔄</div><h3>表替え</h3></div><div class="service-body"><div class="service-price">8,000円〜/畳</div><div class="service-desc">既存の畳床に新しい畳表を張り替え</div></div></div>
+    <div class="service-card"><div class="service-header"><div class="icon">↩️</div><h3>裏返し</h3></div><div class="service-body"><div class="service-price">4,000円〜/畳</div><div class="service-desc">畳表を裏返して使う経済的な方法</div></div></div>
+    <div class="service-card"><div class="service-header"><div class="icon">🆕</div><h3>新畳</h3></div><div class="service-body"><div class="service-price">15,000円〜/畳</div><div class="service-desc">床から全て新しい畳に交換</div></div></div>
+    <div class="service-card"><div class="service-header"><div class="icon">🎋</div><h3>縁なし畳</h3></div><div class="service-body"><div class="service-price">18,000円〜/畳</div><div class="service-desc">琉球畳など現代インテリアにも</div></div></div>
+  </div>
+</div>
+
+<div class="section craftsman-bg">
+  <div class="label">Craftsman</div>
+  <div class="title">職人について</div>
+  <div class="craftsman-inner">
+    <div class="craftsman-photo">🧑‍🔧</div>
+    <div class="craftsman-info">
+      <h3>職人の畳 あおき 職人一同</h3>
+      <p>畳一枚一枚を丁寧に、手を抜かずに仕上げることを信念としています。機械では再現できない手縫いの風合いにこだわり、お客様の暮らしに合った畳をご提案しています。採寸から施工、アフターケアまで自社一貫で行います。</p>
+      <div class="craftsman-tags">
+        <span class="c-tag">全工程自社施工</span>
+        <span class="c-tag">手縫い対応</span>
+        <span class="c-tag">国産・外国産 選べる</span>
+        <span class="c-tag">古い畳の引取りOK</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="label">Why Choose Us</div>
+  <div class="title">選ばれ続ける理由</div>
+  <div class="reason-grid">
+        <div class="reason-card">
+      <div class="reason-icon">🔨</div>
+      <div class="reason-title">全工程自社施工</div>
+      <div class="reason-body">採寸・製作・施工まで外注せず自社で完結。一貫した品質管理で安心をお届けします。</div>
+    </div>
+    <div class="reason-card">
+      <div class="reason-icon">🌾</div>
+      <div class="reason-title">国産・外国産選べる</div>
+      <div class="reason-body">ご予算に合わせて国産・外国産の畳表をご用意。品質の違いを丁寧にご説明します。</div>
+    </div>
+    <div class="reason-card">
+      <div class="reason-icon">🔁</div>
+      <div class="reason-title">地元密着の信頼実績</div>
+      <div class="reason-body">「何十年も頼んでいる」というご家庭多数。地域に根ざした誠実な仕事を続けています。</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="voices">
+  <div class="label">Reviews</div>
+  <div class="title">お客様の声</div>
+  <div class="sub">Googleマップ 18件の口コミより</div>
+  <div class="voice-list">
+        <div class="voice-card">
+      <div class="voice-avatar">K</div>
+      <div>
+        <div class="voice-meta">
+          <span class="voice-name">50代 男性</span>
+          <span class="voice-stars">★★★★☆</span>
+          <span class="voice-tag">リピーター</span>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">メニュー: 表替え依頼</div>
+        <div class="voice-text">「職人さんの仕事が丁寧で、仕上がりに大満足。い草の香りが部屋に広がって気持ちいいです。」</div>
+        <div class="voice-date">Google マップ 口コミより</div>
+      </div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-avatar">S</div>
+      <div>
+        <div class="voice-meta">
+          <span class="voice-name">40代 女性</span>
+          <span class="voice-stars">★★★★☆</span>
+          <span class="voice-tag">初回依頼</span>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">メニュー: 新畳交換</div>
+        <div class="voice-text">「採寸から施工まで丁寧に対応していただきました。価格も明確で安心でした。」</div>
+        <div class="voice-date">Google マップ 口コミより</div>
+      </div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-avatar">H</div>
+      <div>
+        <div class="voice-meta">
+          <span class="voice-name">60代 男性</span>
+          <span class="voice-stars">★★★★☆</span>
+          <span class="voice-tag">定期利用</span>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">メニュー: 裏返し施工</div>
+        <div class="voice-text">「毎回品質が一定で信頼できます。地元の職人さんに頼んで良かったです。」</div>
+        <div class="voice-date">Google マップ 口コミより</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section flow-bg">
+  <div class="label" style="color:var(--tatami)">Flow</div>
+  <div class="title" style="color:#fff;margin-bottom:1.5rem">ご依頼の流れ</div>
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="step-num">1</div>
+      <div><div class="step-title">お問い合わせ・ご相談</div><div class="step-body">電話またはWEBからお気軽にご連絡ください。畳の状態や希望をお聞きします。</div></div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">2</div>
+      <div><div class="step-title">現地採寸・お見積もり（無料）</div><div class="step-body">ご自宅に伺い採寸・状態確認。その場でお見積もりをご提示します。</div></div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">3</div>
+      <div><div class="step-title">施工・仕上がり確認</div><div class="step-body">職人が丁寧に施工。完成後にご一緒に確認いただき、ご納得いただけるまでご対応します。</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="label">Strengths</div>
+  <div class="title">当店の特長</div>
+  <div class="str-list">
+        <div class="str-item"><div class="str-dot"></div><div class="str-text">採寸・見積もり・施工まで自社一貫</div></div>
+    <div class="str-item"><div class="str-dot"></div><div class="str-text">国産・外国産畳表から選べる</div></div>
+    <div class="str-item"><div class="str-dot"></div><div class="str-text">手縫い対応・こだわりの職人技</div></div>
+    <div class="str-item"><div class="str-dot"></div><div class="str-text">古い畳の引き取りサービスあり</div></div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <h2>まずはお気軽にご相談ください</h2>
+  <p>見積もり・採寸は無料です。「畳が痛んできた」「い草の香りが懐かしい」そんな方もぜひ。</p>
+  <a class="cta-btn" href="https://www.ekiten.jp/" target="_blank">無料見積もり・お問い合わせ</a>
+</div>
+
+<footer>
+  <strong>職人の畳 あおき</strong><br>
+  石巻市エリア ・ 畳店<br>
+  <small style="opacity:.38">※試作品 — このページは制作デモです</small>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
+},{threshold:.15});
+document.querySelectorAll('.voice-card').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
