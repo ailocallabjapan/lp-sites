@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>印役接骨療院 | 山形市の接骨院</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --c1:#1E40AF;
+  --c2:#3B82F6;
+  --bg:#F0F5FF;
+  --text1:#0F172A;
+  --text2:#334155;
+  --text3:#64748B;
+  --white:#FFFFFF;
+  --r:14px;
+  --shadow:0 4px 24px rgba(30,64,175,.12);
+}
+body{font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;background:var(--bg);color:var(--text2);line-height:1.7}
+
+/* NAV */
+nav{background:var(--white);border-bottom:3px solid var(--c1);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.nav-name{font-size:1.05rem;font-weight:700;color:var(--c1)}
+.nav-badge{background:#EF4444;color:#fff;font-size:.7rem;padding:.2rem .6rem;border-radius:999px;margin-left:.5rem}
+.nav-cta{background:var(--c1);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:999px;font-size:.85rem;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0F172A 0%,var(--c1) 60%,var(--c2) 100%);color:#fff;padding:3.5rem 5vw 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,255,255,.08)'/%3E%3C/svg%3E");background-size:60px 60px}
+.hero-tag{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:.35rem .9rem;font-size:.8rem;margin-bottom:1.2rem}
+.hero-tag::before{content:'📍'}
+.hero h1{font-size:clamp(1.6rem,5vw,2.4rem);font-weight:900;line-height:1.25;margin-bottom:.6rem}
+.hero h1 span{color:#93C5FD}
+.hero-copy{font-size:1rem;opacity:.9;margin-bottom:1.5rem;line-height:1.8}
+.hero-stars{display:flex;align-items:center;gap:.5rem;margin-bottom:1.8rem;font-size:.9rem}
+.hero-stars .stars{color:#FBBF24;font-size:1.1rem;letter-spacing:.1rem}
+.hero-stars .count{background:rgba(255,255,255,.15);padding:.2rem .7rem;border-radius:999px;font-size:.8rem}
+.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn-primary{background:#fff;color:var(--c1);font-weight:800;padding:.85rem 2rem;border-radius:999px;text-decoration:none;font-size:.95rem;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,0,0,.2)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.25)}
+.btn-secondary{background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.5);font-weight:700;padding:.8rem 1.6rem;border-radius:999px;text-decoration:none;font-size:.9rem}
+
+/* SYMPTOMS */
+.section{padding:3rem 5vw}
+.section-label{font-size:.75rem;font-weight:700;color:var(--c1);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
+.section-title{font-size:clamp(1.25rem,3.5vw,1.7rem);font-weight:800;color:var(--text1);margin-bottom:.5rem}
+.section-sub{color:var(--text3);font-size:.9rem;margin-bottom:2rem}
+
+.symptom-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1rem}
+.symptom-card{background:var(--white);border-radius:var(--r);padding:1.2rem 1rem;text-align:center;box-shadow:var(--shadow);border-top:3px solid var(--c2);transition:transform .2s}
+.symptom-card:hover{transform:translateY(-3px)}
+.symptom-icon{font-size:2rem;display:block;margin-bottom:.5rem}
+.symptom-name{font-size:.85rem;font-weight:700;color:var(--text1)}
+.symptom-tag{font-size:.7rem;color:var(--c1);background:#EFF6FF;padding:.15rem .5rem;border-radius:999px;margin-top:.3rem;display:inline-block}
+
+/* BADGES */
+.badge-row{display:flex;flex-wrap:wrap;gap:.8rem;margin:2rem 0}
+.badge{display:flex;align-items:center;gap:.5rem;background:var(--white);border:1.5px solid var(--c2);color:var(--c1);padding:.4rem 1rem;border-radius:999px;font-size:.8rem;font-weight:700;box-shadow:0 2px 8px rgba(30,64,175,.1)}
+
+/* REASONS */
+.reasons-bg{background:var(--white)}
+.reason-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem}
+.reason-card{background:var(--bg);border-radius:var(--r);padding:1.5rem;border-left:4px solid var(--c1)}
+.reason-icon{font-size:1.8rem;margin-bottom:.6rem}
+.reason-title{font-weight:800;font-size:1rem;color:var(--text1);margin-bottom:.4rem}
+.reason-body{font-size:.88rem;color:var(--text3);line-height:1.7}
+
+/* VOICES */
+.voices-bg{background:linear-gradient(180deg,var(--bg) 0%,#E0EAFF 100%)}
+.voice-list{display:flex;flex-direction:column;gap:1rem}
+.voice-card{background:var(--white);border-radius:var(--r);padding:1.4rem;box-shadow:var(--shadow);display:flex;gap:1rem;align-items:flex-start;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
+.voice-card.visible{opacity:1;transform:none}
+.voice-avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;flex-shrink:0}
+.voice-meta{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.3rem}
+.voice-name{font-weight:700;font-size:.88rem;color:var(--text1)}
+.voice-stars{color:#FBBF24;font-size:.9rem}
+.voice-tag{background:#EFF6FF;color:var(--c1);font-size:.7rem;padding:.15rem .5rem;border-radius:999px;font-weight:700}
+.voice-text{font-size:.9rem;color:var(--text2);line-height:1.7}
+.voice-date{font-size:.72rem;color:var(--text3);margin-top:.5rem}
+
+/* PRICE */
+.price-table{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+.price-table th{background:var(--c1);color:#fff;padding:.8rem 1rem;text-align:left;font-size:.88rem}
+.price-table td{padding:.75rem 1rem;border-bottom:1px solid #E2E8F0;font-size:.88rem}
+.price-table tr:last-child td{border-bottom:none}
+.price-table tr:nth-child(even) td{background:#F8FAFF}
+.price-note{font-size:.78rem;color:var(--text3);margin-top:.8rem}
+
+/* STRENGTHS */
+.str-list{display:flex;flex-direction:column;gap:.7rem}
+.str-item{display:flex;align-items:center;gap:.7rem;background:var(--white);padding:.8rem 1rem;border-radius:var(--r);box-shadow:var(--shadow)}
+.str-dot{width:10px;height:10px;border-radius:50%;background:var(--c1);flex-shrink:0}
+.str-text{font-size:.9rem;font-weight:600;color:var(--text1)}
+
+/* CTA SECTION */
+.cta-section{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;text-align:center;padding:3rem 5vw}
+.cta-section h2{font-size:1.4rem;font-weight:800;margin-bottom:.5rem}
+.cta-section p{opacity:.9;margin-bottom:1.5rem;font-size:.92rem}
+.cta-btn{display:inline-block;background:#fff;color:var(--c1);font-weight:800;padding:1rem 2.5rem;border-radius:999px;text-decoration:none;font-size:1rem;box-shadow:0 4px 20px rgba(0,0,0,.2);transition:transform .2s}
+.cta-btn:hover{transform:translateY(-2px)}
+
+/* FOOTER */
+footer{background:#0F172A;color:rgba(255,255,255,.6);padding:2rem 5vw;text-align:center;font-size:.78rem;line-height:2}
+footer strong{color:#fff}
+
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--c2),transparent);margin:0 5vw}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">印役接骨療院 <span class="nav-badge">保険対応</span></span>
+  <a class="nav-cta" href="https://inyaku.com/form.html" target="_blank">ご予約・お問合せ</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">山形市 ・ 接骨院</div>
+  <h1>印役接骨療院は<br><span>あなたの痛みに</span><br>向き合います</h1>
+  <p class="hero-copy">痛みの原因を根本から診て、早期回復をサポートします。国家資格を持つ施術師が、お一人おひとりに合った治療をご提供します。</p>
+  <div class="hero-stars">
+    <span class="stars">★★★★★</span>
+    <strong>4.2</strong>
+    <span class="count">口コミ 18件</span>
+    <span class="count">Google マップより</span>
+  </div>
+  <div class="hero-btns">
+    <a class="btn-primary" href="https://inyaku.com/form.html" target="_blank">今すぐ予約する</a>
+    <a class="btn-secondary" href="#voices">口コミを見る</a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Symptoms</div>
+  <div class="section-title">こんなお悩みありませんか？</div>
+  <div class="section-sub">腰・肩・膝…どんな症状でもお気軽にご相談ください</div>
+  <div class="symptom-grid">
+        <div class="symptom-card"><span class="symptom-icon">🦴</span><div class="symptom-name">腰痛・ぎっくり腰</div></div>
+    <div class="symptom-card"><span class="symptom-icon">💆</span><div class="symptom-name">肩こり・首こり</div></div>
+    <div class="symptom-card"><span class="symptom-icon">🦵</span><div class="symptom-name">膝の痛み</div></div>
+    <div class="symptom-card"><span class="symptom-icon">🤕</span><div class="symptom-name">頭痛・偏頭痛</div></div>
+    <div class="symptom-card"><span class="symptom-icon">🚗</span><div class="symptom-name">交通事故治療</div></div>
+    <div class="symptom-card"><span class="symptom-icon">⚽</span><div class="symptom-name">スポーツ障害</div></div>
+    <div class="symptom-card"><span class="symptom-icon">🖐️</span><div class="symptom-name">手首・肘の痛み</div></div>
+    <div class="symptom-card"><span class="symptom-icon">👣</span><div class="symptom-name">足首・足裏の痛み</div></div>
+  </div>
+  <div class="badge-row">
+    <div class="badge">🏥 国家資格保持者が施術</div>
+    <div class="badge">💳 保険適用・自費どちらも対応</div>
+    <div class="badge">🚗 交通事故治療OK</div>
+    <div class="badge">🤸 スポーツ障害専門対応</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section reasons-bg" id="features">
+  <div class="section-label">Why Choose Us</div>
+  <div class="section-title">選ばれ続ける3つの理由</div>
+  <div class="section-sub">山形市の患者様から信頼いただける理由</div>
+  <div class="reason-grid">
+        <div class="reason-card">
+      <div class="reason-icon">🏥</div>
+      <div class="reason-title">国家資格の施術師</div>
+      <div class="reason-body">柔道整復師の国家資格を持つ施術師が担当。確かな知識と技術で根本から回復をサポートします。</div>
+    </div>
+    <div class="reason-card">
+      <div class="reason-icon">💳</div>
+      <div class="reason-title">保険対応・明確な料金</div>
+      <div class="reason-body">健康保険が使えて、自費と合わせて柔軟に対応。初診から料金説明を丁寧に行います。</div>
+    </div>
+    <div class="reason-card">
+      <div class="reason-icon">🔁</div>
+      <div class="reason-title">高い再来院率</div>
+      <div class="reason-body">「また来たい」「家族にも紹介した」。口コミで広がるリピーターが多いのが当院の誇りです。</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section voices-bg" id="voices">
+  <div class="section-label">Reviews</div>
+  <div class="section-title">患者様の声</div>
+  <div class="section-sub">Googleマップ 18件の口コミから抜粋</div>
+  <div class="voice-list">
+        <div class="voice-card">
+      <div class="voice-avatar">M</div>
+      <div>
+        <div class="voice-meta">
+          <span class="voice-name">40代 男性</span>
+          <span class="voice-stars">★★★★☆</span>
+          <span class="voice-tag">リピーター</span>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">メニュー: 週1利用</div>
+        <div class="voice-text">「長年の腰痛が楽になりました。施術後の体の軽さが全然違います。先生の説明がわかりやすく、原因からしっかり教えていただけます。」</div>
+        <div class="voice-date">Google マップ 口コミより</div>
+      </div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-avatar">S</div>
+      <div>
+        <div class="voice-meta">
+          <span class="voice-name">30代 女性</span>
+          <span class="voice-stars">★★★★☆</span>
+          <span class="voice-tag">3回目来院</span>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">メニュー: 肩こり改善</div>
+        <div class="voice-text">「痛くなく、でもしっかり効いている施術に驚きました。翌日の体の軽さが全然違います。」</div>
+        <div class="voice-date">Google マップ 口コミより</div>
+      </div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-avatar">K</div>
+      <div>
+        <div class="voice-meta">
+          <span class="voice-name">50代 男性</span>
+          <span class="voice-stars">★★★★☆</span>
+          <span class="voice-tag">定期利用</span>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">メニュー: 腰痛治療</div>
+        <div class="voice-text">「交通事故後のリハビリでお世話になっています。丁寧な対応で安心して通えます。」</div>
+        <div class="voice-date">Google マップ 口コミより</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="section-label">Price</div>
+  <div class="section-title">料金目安</div>
+  <table class="price-table">
+    <tr><th>施術内容</th><th>保険適用</th><th>自費</th></tr>
+    <tr><td>初診・検査</td><td>無料〜</td><td>1,500円〜</td></tr>
+    <tr><td>整骨・骨盤矯正</td><td>数百円〜</td><td>3,000円〜</td></tr>
+    <tr><td>電気療法・温熱</td><td>適用内</td><td>1,000円〜</td></tr>
+    <tr><td>スポーツマッサージ</td><td>−</td><td>3,500円〜</td></tr>
+  </table>
+  <p class="price-note">※保険適用は症状・負傷の原因によります。詳細はお気軽にお問い合わせください。</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="section-label">Strengths</div>
+  <div class="section-title">当院の強み</div>
+  <div class="str-list">
+        <div class="str-item"><div class="str-dot"></div><div class="str-text">国家資格保持者による安心施術</div></div>
+    <div class="str-item"><div class="str-dot"></div><div class="str-text">保険適用・自費どちらも対応</div></div>
+    <div class="str-item"><div class="str-dot"></div><div class="str-text">丁寧な問診と分かりやすい説明</div></div>
+    <div class="str-item"><div class="str-dot"></div><div class="str-text">地域密着・アットホームな雰囲気</div></div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <h2>まずはお気軽にご相談ください</h2>
+  <p>初めての方も安心。症状・料金・保険のことなど、なんでもお聞きします。</p>
+  <a class="cta-btn" href="https://inyaku.com/form.html" target="_blank">ご予約・お問い合わせはこちら</a>
+</div>
+
+<footer>
+  <strong>印役接骨療院</strong><br>
+  山形市 ・ 接骨院<br>
+  <small style="opacity:.5">※試作品 — このページは制作デモです</small>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
+}, {threshold:.15});
+document.querySelectorAll('.voice-card').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
