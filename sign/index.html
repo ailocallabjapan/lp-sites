@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BODY DESIGN STUDIO 表参道 | パーソナルトレーニング 東京港区</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0a;
+  --bg2:#0f0f0f;
+  --bgcard:#161616;
+  --bghover:#1c1c1c;
+  --accent:#4cbc6e;
+  --accentl:#7dd894;
+  --accentdim:rgba(76,188,110,.12);
+  --goldgrad:linear-gradient(135deg,#4cbc6e 0%,#7dd894 50%,#4cbc6e 100%);
+  --text:#edf0e8;
+  --text2:#8a9080;
+  --text3:#484e40;
+  --border:rgba(76,188,110,.22);
+  --border2:rgba(255,255,255,.06);
+  --r:14px;
+  --rxl:28px;
+  --sdw:0 20px 60px rgba(0,0,0,.6);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --t:.35s
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Noto Sans JP',sans-serif;line-height:1.75;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* TYPOGRAPHY */
+.dxl{font-size:clamp(2.6rem,8vw,6.5rem);font-weight:800;line-height:1.05;letter-spacing:-.02em}
+.dlg{font-size:clamp(1.9rem,5vw,3.8rem);font-weight:700;line-height:1.15;letter-spacing:-.01em}
+.dmd{font-size:clamp(1.4rem,3.5vw,2.3rem);font-weight:700;line-height:1.25}
+.label{font-size:.7rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.6rem}
+.gold{background:var(--goldgrad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ANIMATION */
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulse{0%{transform:scale(.9);opacity:.7}100%{transform:scale(1.6);opacity:0}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+.anim{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.anim.vis{opacity:1;transform:none}
+
+/* HEADER */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;transition:background var(--t) var(--ease),backdrop-filter var(--t)}
+.hdr.on{background:rgba(10,10,10,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2)}
+.logo{font-size:1rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;background:var(--goldgrad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hcta{background:var(--goldgrad);color:#0a0a0a;font-weight:800;font-size:.8rem;letter-spacing:.04em;padding:.6rem 1.4rem;border-radius:50px;white-space:nowrap;transition:transform var(--t),box-shadow var(--t)}
+.hcta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(76,188,110,.4)}
+
+/* HERO */
+.hero{min-height:100svh;display:grid;place-items:center;position:relative;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(76,188,110,.1) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 15% 20%,rgba(76,188,110,.06) 0%,transparent 60%),var(--bg)}
+.hbgtxt{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:clamp(7rem,22vw,20rem);font-weight:900;letter-spacing:.06em;white-space:nowrap;color:rgba(76,188,110,.04);user-select:none;pointer-events:none}
+.hcont{position:relative;text-align:center;padding:7rem 1.5rem 4rem;max-width:900px;width:100%;animation:fadeIn 1.2s var(--ease) both}
+.hbadge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1.2rem;border:1px solid var(--border);border-radius:50px;font-size:.72rem;color:var(--accent);letter-spacing:.08em;margin-bottom:1.75rem;background:var(--accentdim);animation:fadeUp .8s var(--ease) .2s both}
+.dot{width:7px;height:7px;background:var(--accent);border-radius:50%;position:relative;flex-shrink:0}
+.dot::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--accent);animation:pulse 1.6s ease infinite}
+.hero h1{animation:fadeUp .8s var(--ease) .4s both;margin-bottom:1.4rem}
+.hsub{font-size:clamp(.95rem,2.5vw,1.15rem);color:var(--text2);max-width:560px;margin:0 auto 2.4rem;animation:fadeUp .8s var(--ease) .6s both;line-height:1.85}
+.hbtns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;animation:fadeUp .8s var(--ease) .8s both}
+.btnp{display:inline-flex;align-items:center;gap:.5rem;background:var(--goldgrad);color:#0a0a0a;font-weight:800;font-size:.95rem;padding:.95rem 2.2rem;border-radius:50px;transition:transform var(--t),box-shadow var(--t)}
+.btnp:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 36px rgba(76,188,110,.45)}
+.btns{display:inline-flex;align-items:center;gap:.5rem;border:1.5px solid var(--border);color:var(--text);font-weight:600;font-size:.95rem;padding:.95rem 2.2rem;border-radius:50px;transition:border-color var(--t),color var(--t),background var(--t)}
+.btns:hover{border-color:var(--accent);color:var(--accent);background:var(--accentdim)}
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--text3);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;animation:fadeIn 1s var(--ease) 1.6s both}
+.sline{width:1px;height:48px;background:linear-gradient(to bottom,var(--accent),transparent);animation:float 2.2s ease infinite}
+
+/* STATS */
+.stats{background:var(--bgcard);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);padding:2.4rem 1.5rem}
+.sgrid{max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.sitem{text-align:center}
+.snum{font-size:clamp(1.9rem,4vw,3rem);font-weight:800;line-height:1;margin-bottom:.25rem;background:var(--goldgrad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.slbl{font-size:.72rem;color:var(--text2);letter-spacing:.05em}
+@media(max-width:600px){.sgrid{grid-template-columns:repeat(2,1fr);gap:1.5rem}}
+
+/* SECTIONS */
+.sec{padding:clamp(4rem,10vw,8rem) 1.5rem}
+.wrap{max-width:1100px;margin:0 auto}
+.shdr{margin-bottom:clamp(2.5rem,6vw,4.5rem);text-align:center}
+.divider{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}
+
+/* ABOUT */
+.about{background:var(--bg2)}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.avis{position:relative;border-radius:var(--rxl);overflow:hidden;aspect-ratio:4/5;background:linear-gradient(135deg,var(--bgcard),var(--bghover));border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:5.5rem}
+.avis::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 35% 70%,rgba(76,188,110,.14) 0%,transparent 60%)}
+.aico{position:relative;filter:drop-shadow(0 0 28px rgba(76,188,110,.4));animation:float 4s ease infinite}
+.atxt h2{margin-bottom:1.4rem}
+.atxt p{color:var(--text2);line-height:1.9;margin-bottom:1.1rem;font-size:.92rem}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.tag{padding:.3rem .85rem;background:var(--accentdim);border:1px solid var(--border);border-radius:50px;font-size:.72rem;color:var(--accentl);letter-spacing:.03em}
+@media(max-width:768px){.agrid{grid-template-columns:1fr;gap:2.5rem}}
+
+/* SERVICES */
+.sgcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
+.scard{background:var(--bgcard);border:1px solid var(--border2);border-radius:var(--rxl);padding:2rem;transition:transform var(--t),border-color var(--t),box-shadow var(--t),background var(--t);position:relative;overflow:hidden}
+.scard::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at bottom right,rgba(76,188,110,.08) 0%,transparent 60%);opacity:0;transition:opacity var(--t)}
+.scard:hover{transform:translateY(-6px);border-color:var(--border);box-shadow:0 12px 40px rgba(0,0,0,.5);background:var(--bghover)}
+.scard:hover::after{opacity:1}
+.sico{width:54px;height:54px;border-radius:14px;background:var(--accentdim);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.55rem;margin-bottom:1.2rem;transition:transform var(--t)}
+.scard:hover .sico{transform:scale(1.1) rotate(5deg)}
+.scard h3{font-size:1.02rem;font-weight:700;margin-bottom:.7rem}
+.scard p{font-size:.83rem;color:var(--text2);line-height:1.75}
+.scard .phint{display:inline-block;margin-top:1rem;font-size:.78rem;color:var(--accent);font-weight:600}
+
+/* REVIEWS */
+.reviews{background:var(--bg2)}
+.rrh{text-align:center;margin-bottom:3rem}
+.rstar{font-size:1.9rem;letter-spacing:.2rem;color:var(--accent);margin-bottom:.5rem}
+.rbig{font-size:clamp(3.8rem,10vw,6.5rem);font-weight:900;background:var(--goldgrad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:.25rem}
+.rcnt{color:var(--text2);font-size:.83rem;letter-spacing:.05em}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+.rcard{background:var(--bgcard);border:1px solid var(--border2);border-radius:var(--r);padding:1.7rem;transition:border-color var(--t),transform var(--t)}
+.rcard:hover{border-color:var(--border);transform:translateY(-4px)}
+.rheader{display:flex;align-items:center;gap:.7rem;margin-bottom:.9rem}
+.rava{width:40px;height:40px;border-radius:50%;background:var(--accentdim);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.rname{font-size:.83rem;font-weight:600;display:block;color:var(--text)}
+.rdate{font-size:.68rem;color:var(--text3)}
+.rstarss{color:var(--accent);font-size:.72rem;letter-spacing:.1rem;margin-bottom:.7rem}
+.rtxt{font-size:.83rem;color:var(--text2);line-height:1.8}
+
+/* FAQ */
+.faq{background:var(--bg2)}
+.flist{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:.7rem}
+details{background:var(--bgcard);border:1px solid var(--border2);border-radius:var(--r);overflow:hidden;transition:border-color var(--t)}
+details[open]{border-color:var(--border)}
+summary{padding:1.2rem 1.5rem;font-size:.9rem;font-weight:600;color:var(--text);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:color var(--t)}
+summary::-webkit-details-marker{display:none}
+details[open] summary{color:var(--accent)}
+.sico2{width:24px;height:24px;flex-shrink:0;border-radius:50%;border:1.5px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:.85rem;transition:transform var(--t),background var(--t)}
+details[open] .sico2{transform:rotate(45deg);background:var(--accentdim)}
+.fbody{padding:0 1.5rem 1.2rem;font-size:.83rem;color:var(--text2);line-height:1.85}
+
+/* ACCESS */
+.acgrid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.acitem{display:flex;gap:.9rem;align-items:flex-start;padding:1rem 0;border-bottom:1px solid var(--border2)}
+.acitem:last-child{border-bottom:none}
+.acico{width:36px;height:36px;border-radius:10px;background:var(--accentdim);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.aclbl{font-size:.68rem;letter-spacing:.1em;color:var(--text3);text-transform:uppercase;display:block;margin-bottom:.2rem}
+.acval{font-size:.86rem;color:var(--text);line-height:1.6}
+.mapbox{border-radius:var(--rxl);overflow:hidden;border:1px solid var(--border2);background:var(--bgcard);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.7rem;color:var(--text2);font-size:.83rem}
+.mico{font-size:2.4rem;animation:float 3s ease infinite}
+@media(max-width:768px){.acgrid{grid-template-columns:1fr;gap:2rem}}
+
+/* CTA */
+.cta{text-align:center;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(76,188,110,.09) 0%,transparent 70%),var(--bg);padding:clamp(5rem,12vw,10rem) 1.5rem}
+.cta h2{margin-bottom:1.2rem}
+.cta p{color:var(--text2);max-width:500px;margin:0 auto 2.4rem;font-size:.98rem;line-height:1.85}
+.cbtns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+.btnlg{font-size:1.02rem;padding:1.1rem 2.8rem}
+
+/* FOOTER */
+.ftr{background:var(--bgcard);border-top:1px solid var(--border2);padding:2.4rem 1.5rem;text-align:center}
+.flogo{font-size:1.2rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;background:var(--goldgrad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.65rem}
+.fcopy{font-size:.73rem;color:var(--text3)}
+
+/* SAMPLE BADGE */
+.sbadge{position:fixed;top:.65rem;left:50%;transform:translateX(-50%);z-index:200;background:#f59e0b;color:#0a0a0a;font-size:.62rem;font-weight:800;letter-spacing:.1em;padding:.28rem 1rem;border-radius:50px;box-shadow:0 4px 16px rgba(245,158,11,.4);pointer-events:none;white-space:nowrap}
+
+/* MOBILE CTA */
+.mcta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:90;padding:.8rem 1.2rem;background:rgba(10,10,10,.96);backdrop-filter:blur(20px);border-top:1px solid var(--border);gap:.7rem}
+.mcta .btnp,.mcta .btns{flex:1;justify-content:center;font-size:.83rem;padding:.85rem 1rem}
+@media(max-width:768px){.mcta{display:flex};body{padding-bottom:5rem}}
+</style>
+</head>
+<body>
+
+<div class="sbadge">⚠ 試作品 / PROTOTYPE</div>
+
+<header class="hdr" id="hdr">
+  <a href="#" class="logo">BODY DESIGN.</a>
+  <a href="#cta" class="hcta">体験トレーニングを予約</a>
+</header>
+
+<section class="hero">
+  <div class="hbgtxt" aria-hidden="true">BODY</div>
+  <div class="hcont">
+    <div class="hbadge">
+      <span class="dot"></span>
+      東京港区表参道 &nbsp;/&nbsp; 完全個室 &nbsp;/&nbsp; 元プロアスリートトレーナー
+    </div>
+    <h1 class="dxl gold">身体を、<br>デザインする。</h1>
+    <p class="hsub">元プロアスリートのトレーナーが、完全個室で結果にコミット。表参道で本物のボディメイクを。</p>
+    <div class="hbtns">
+      <a href="#cta" class="btnp btnlg">🏋️ 体験トレーニングを予約</a>
+      <a href="#services" class="btns btnlg">コースを見る</a>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">
+    <div class="sline"></div>
+    SCROLL
+  </div>
+</section>
+
+<section class="stats">
+  <div class="sgrid">
+    <div class="sitem anim"><div class="snum">4.9</div><div class="slbl">★ Google評価</div></div>
+    <div class="sitem anim" style="transition-delay:.1s"><div class="snum">143</div><div class="slbl">口コミ件数</div></div>
+    <div class="sitem anim" style="transition-delay:.2s"><div class="snum">個室</div><div class="slbl">完全個室スタジオ</div></div>
+    <div class="sitem anim" style="transition-delay:.3s"><div class="snum">Pro</div><div class="slbl">元プロ在籍</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="sec about" id="about">
+  <div class="wrap">
+    <div class="agrid">
+      <div class="avis anim"><span class="aico">🏋️</span></div>
+      <div class="atxt anim" style="transition-delay:.15s">
+        <span class="label">Our Commitment</span>
+        <h2 class="dmd">結果にコミットする、<br><span class="gold">本物のトレーニングを。</span></h2>
+        <p>BODY DESIGN STUDIOのトレーナーは全員元プロアスリート。競技で培った身体の知識と指導スキルを、あなたのボディメイクに活かします。完全個室で集中できる環境、栄養指導まで一貫したサポート。</p>
+        <p>「3ヶ月で変わる」。そのコミットメントを実現するために、トレーニングから食事まで、すべてをあなた専用に設計します。</p>
+        <div class="tags">
+          <span class="tag">元プロアスリート</span>
+          <span class="tag">完全個室</span>
+          <span class="tag">結果コミット型</span>
+          <span class="tag">栄養指導</span>
+          <span class="tag">ダイエット</span>
+          <span class="tag">ボディメイク</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="shdr anim">
+      <span class="label">Services</span>
+      <h2 class="dmd">トレーニングコース</h2>
+      <p style="color:var(--text2);margin-top:.7rem;font-size:.88rem">あなたの目標に合わせた最適なプログラムを提供します</p>
+    </div>
+    <div class="sgcards">
+      <div class="scard anim">
+        <div class="sico">🏋️</div>
+        <h3>パーソナルトレーニング</h3>
+        <p>完全個室で元プロアスリートトレーナーが1対1で徹底指導。あなただけのプログラムで最速の変化を。</p>
+        <span class="phint">体験あり →</span>
+      </div>
+      <div class="scard anim" style="transition-delay:.1s">
+        <div class="sico">🔥</div>
+        <h3>ダイエットコース</h3>
+        <p>3ヶ月で体型を根本から変える。食事管理と運動の最適な組み合わせで、リバウンドしない体へ。</p>
+        <span class="phint">体験あり →</span>
+      </div>
+      <div class="scard anim" style="transition-delay:.2s">
+        <div class="sico">💪</div>
+        <h3>ボディメイクコース</h3>
+        <p>筋肉をつけながら引き締まったボディを目指す専門コース。元プロが設計する本格的なメニューを。</p>
+        <span class="phint">体験あり →</span>
+      </div>
+      <div class="scard anim" style="transition-delay:.3s">
+        <div class="sico">🥗</div>
+        <h3>栄養指導</h3>
+        <p>食事制限だけに頼らない。食べて変わる食事法を一人一人に合わせて提案。PFCバランスを最適化。</p>
+        <span class="phint">体験あり →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="sec reviews" id="reviews">
+  <div class="wrap">
+    <div class="shdr anim">
+      <span class="label">Reviews</span>
+      <h2 class="dmd">お客様の声</h2>
+    </div>
+    <div class="rrh anim">
+      <div class="rstar">★★★★★</div>
+      <div class="rbig">4.9</div>
+      <div class="rcnt">Google口コミ 143件 の平均評価</div>
+    </div>
+    <div class="rgrid">
+      <div class="rcard anim">
+        <div class="rheader"><div class="rava">💪</div><div><span class="rname">T.S. さん</span><span class="rdate">2025年春</span></div></div>
+        <div class="rstarss">★★★★★</div>
+        <p class="rtxt">元プロアスリートのトレーナーさんの指導はやっぱり違います。3ヶ月で見た目が全然変わりました。本物だと感じます。</p>
+      </div>
+      <div class="rcard anim" style="transition-delay:.1s">
+        <div class="rheader"><div class="rava">🏋️</div><div><span class="rname">M.K. さん</span><span class="rdate">2024年秋</span></div></div>
+        <div class="rstarss">★★★★★</div>
+        <p class="rtxt">完全個室なので鏡を見ながら集中してトレーニングできます。周りの目が気にならないので続けられます。最高の環境です。</p>
+      </div>
+      <div class="rcard anim" style="transition-delay:.2s">
+        <div class="rheader"><div class="rava">🥗</div><div><span class="rname">Y.A. さん</span><span class="rdate">2025年夏</span></div></div>
+        <div class="rstarss">★★★★★</div>
+        <p class="rtxt">栄養指導込みなのが最高。食べながら体が変わっていくのが本当に楽しかったです。食事の知識も身につきました。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec faq" id="faq">
+  <div class="wrap">
+    <div class="shdr anim">
+      <span class="label">FAQ</span>
+      <h2 class="dmd">よくある質問</h2>
+    </div>
+    <div class="flist">
+      <details class="anim">
+        <summary>運動が苦手でも大丈夫ですか？<span class="sico2">＋</span></summary>
+        <div class="fbody">はい、運動経験ゼロの方もたくさんいらっしゃいます。基礎体力・目標に合わせてプログラムを組みます。無理のないペースで始められます。</div>
+      </details>
+      <details class="anim" style="transition-delay:.05s">
+        <summary>食事制限は厳しいですか？<span class="sico2">＋</span></summary>
+        <div class="fbody">極端な食事制限は行いません。「食べながら変わる」ための科学的な食事法をご提案します。食べることが好きな方にも続けやすい方法です。</div>
+      </details>
+      <details class="anim" style="transition-delay:.1s">
+        <summary>効果はどのくらいの期間で出ますか？<span class="sico2">＋</span></summary>
+        <div class="fbody">多くの方が3ヶ月で明確な変化を実感されます。週2回のトレーニングが標準的なペースです。個人差はありますが、継続することで必ず変化は現れます。</div>
+      </details>
+      <details class="anim" style="transition-delay:.15s">
+        <summary>体験トレーニングはありますか？<span class="sico2">＋</span></summary>
+        <div class="fbody">初回体験トレーニングをご用意しています。目標ヒアリング・体力測定・トレーニングがセットになっています。体験後に無理な勧誘は行いません。</div>
+      </details>
+      <details class="anim" style="transition-delay:.2s">
+        <summary>表参道に駐輪場・駐車場はありますか？<span class="sico2">＋</span></summary>
+        <div class="fbody">近隣にコインパーキング・駐輪場がございます。電車でのご来店をお勧めします（東京メトロ「表参道駅」徒歩5分）。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="access">
+  <div class="wrap">
+    <div class="shdr anim">
+      <span class="label">Access</span>
+      <h2 class="dmd">アクセス・営業案内</h2>
+    </div>
+    <div class="acgrid">
+      <div>
+        <div class="acitem anim"><div class="acico">📍</div><div><span class="aclbl">所在地</span><span class="acval">東京都港区表参道（東京メトロ「表参道駅」徒歩5分）</span></div></div>
+        <div class="acitem anim" style="transition-delay:.05s"><div class="acico">🕐</div><div><span class="aclbl">営業時間</span><span class="acval">平日 7:00〜22:00 / 土日 9:00〜18:00</span></div></div>
+        <div class="acitem anim" style="transition-delay:.1s"><div class="acico">📅</div><div><span class="aclbl">定休日</span><span class="acval">無休（年中無休）</span></div></div>
+        <div class="acitem anim" style="transition-delay:.15s"><div class="acico">🚃</div><div><span class="aclbl">最寄り駅</span><span class="acval">東京メトロ銀座線・千代田線・半蔵門線「表参道駅」徒歩5分</span></div></div>
+      </div>
+      <div class="mapbox anim" style="transition-delay:.2s">
+        <span class="mico">📍</span>
+        <span>東京都港区表参道</span>
+        <span style="font-size:.73rem;color:var(--text3)">表参道駅 徒歩5分</span>
+        <a href="https://maps.google.com/?q=表参道駅" target="_blank" rel="noopener" style="margin-top:.5rem;display:inline-block;background:var(--accentdim);border:1px solid var(--border);color:var(--accent);padding:.4rem 1rem;border-radius:50px;font-size:.73rem">Google Mapで開く →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="cta">
+  <div class="wrap anim">
+    <span class="label">Free Trial</span>
+    <h2 class="dlg" style="margin-bottom:1.2rem">「まずは体験で、<br><span class="gold">本物を感じてください。」</span></h2>
+    <p>初回体験トレーニング受付中。元プロアスリートトレーナーと1対1で、あなたの身体の可能性を確かめましょう。</p>
+    <div class="cbtns">
+      <a href="#faq" class="btnp btnlg">🏋️ 体験トレーニングを予約</a>
+      <a href="#services" class="btns btnlg">コース詳細を見る</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr">
+  <div class="flogo">BODY DESIGN STUDIO</div>
+  <p style="font-size:.8rem;color:var(--text2);margin-bottom:.5rem">BODY DESIGN STUDIO 表参道 ｜ 東京都港区表参道</p>
+  <p class="fcopy">© 2026 BODY DESIGN STUDIO 表参道 All rights reserved.<br><span style="font-size:.68rem">※ このページはAIが生成した<strong>試作品</strong>です。実際のサービス・料金は公式HPでご確認ください。</span></p>
+</footer>
+
+<div class="mcta" aria-label="モバイル体験予約">
+  <a href="#services" class="btns">コースを見る</a>
+  <a href="#cta" class="btnp">🏋️ 体験を予約する</a>
+</div>
+
+<script>
+const hdr = document.getElementById('hdr');
+window.addEventListener('scroll', () => hdr.classList.toggle('on', scrollY > 60), {passive:true});
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)} });
+}, {threshold:.1, rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.anim').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
