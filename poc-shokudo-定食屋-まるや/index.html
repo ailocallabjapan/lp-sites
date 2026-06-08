@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>定食屋 まるや | 秋田市エリアの食堂</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --c1:#92400E;
+  --c2:#D97706;
+  --bg:#FFFBF0;
+  --warm:#FEF3C7;
+  --text1:#1C0A00;
+  --text2:#3D2B1F;
+  --text3:#78604A;
+  --white:#FFFFFF;
+  --r:12px;
+  --shadow:0 4px 24px rgba(120,60,0,.1);
+}
+body{font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;background:var(--bg);color:var(--text2);line-height:1.75}
+
+/* NAV */
+nav{background:var(--white);border-bottom:3px solid var(--c1);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.nav-name{font-size:1rem;font-weight:800;color:var(--c1)}
+.nav-hours{font-size:.78rem;color:var(--text3);display:none}
+@media(min-width:500px){.nav-hours{display:block}}
+.nav-cta{background:var(--c1);color:#fff;padding:.5rem 1.1rem;border-radius:6px;font-size:.82rem;font-weight:700;text-decoration:none}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,#450A00 0%,var(--c1) 50%,#92400E 100%);color:#fff;padding:4rem 5vw 5rem;position:relative;overflow:hidden}
+.hero::before{content:'食';position:absolute;right:-20px;top:-10px;font-size:clamp(120px,25vw,220px);font-weight:900;color:rgba(255,255,255,.04);line-height:1;pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50px;background:var(--bg);clip-path:polygon(0 100%,100% 0%,100% 100%)}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.3rem .9rem;font-size:.76rem;letter-spacing:.04em;margin-bottom:1rem}
+.hero h1{font-size:clamp(1.6rem,5vw,2.5rem);font-weight:900;line-height:1.2;margin-bottom:.6rem}
+.hero h1 em{font-style:normal;color:#FDE68A}
+.hero-copy{font-size:.92rem;opacity:.85;margin-bottom:1.4rem}
+.hero-stars{display:flex;align-items:center;gap:.5rem;margin-bottom:2rem;font-size:.86rem}
+.stars{color:#FDE68A;letter-spacing:.06rem}
+.hero-tags{display:flex;gap:.6rem;flex-wrap:wrap}
+.hero-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:.25rem .8rem;font-size:.76rem}
+.hero-cta{margin-top:1.5rem}
+.btn-warm{background:#FDE68A;color:#450A00;font-weight:800;padding:.9rem 2rem;border-radius:8px;text-decoration:none;font-size:.92rem;display:inline-block;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,0,0,.2)}
+.btn-warm:hover{transform:translateY(-2px)}
+
+/* MENU */
+.section{padding:3rem 5vw}
+.section-label{font-size:.7rem;letter-spacing:.18em;font-weight:700;color:var(--c1);margin-bottom:.4rem}
+.section-title{font-size:clamp(1.2rem,3vw,1.6rem);font-weight:900;color:var(--text1);margin-bottom:.4rem}
+.section-sub{font-size:.86rem;color:var(--text3);margin-bottom:1.8rem}
+
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem}
+.menu-card{background:var(--white);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+.menu-img{height:100px;background:linear-gradient(135deg,var(--warm),#FDE68A);display:flex;align-items:center;justify-content:center;font-size:2.8rem}
+.menu-body{padding:.9rem}
+.menu-name{font-weight:800;color:var(--text1);margin-bottom:.2rem;font-size:.92rem}
+.menu-price{color:var(--c1);font-weight:800;font-size:1rem}
+.menu-note{font-size:.74rem;color:var(--text3);margin-top:.2rem}
+
+/* STORY */
+.story-bg{background:var(--warm)}
+.story-inner{display:flex;gap:1.5rem;align-items:flex-start;flex-wrap:wrap}
+.story-icon{font-size:3rem;flex-shrink:0}
+.story-text{flex:1;min-width:200px}
+.story-text h3{font-weight:800;color:var(--text1);margin-bottom:.5rem;font-size:1.05rem}
+.story-text p{font-size:.88rem;color:var(--text2);line-height:1.8}
+.story-sign{font-size:.82rem;color:var(--c1);font-weight:700;margin-top:.7rem}
+
+/* VOICES */
+.voice-list{display:flex;flex-direction:column;gap:1rem}
+.voice-card{background:var(--white);border-radius:var(--r);padding:1.3rem;box-shadow:var(--shadow);display:flex;gap:1rem;opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s}
+.voice-card.visible{opacity:1;transform:none}
+.voice-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0}
+.voice-meta{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.3rem}
+.voice-name{font-weight:700;font-size:.86rem;color:var(--text1)}
+.voice-stars{color:#F59E0B;font-size:.9rem}
+.voice-tag{background:var(--warm);color:var(--c1);font-size:.7rem;padding:.15rem .5rem;border-radius:999px;font-weight:700}
+.voice-text{font-size:.88rem;color:var(--text2);line-height:1.7}
+.voice-date{font-size:.7rem;color:var(--text3);margin-top:.4rem}
+
+/* REASONS */
+.reason-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.2rem}
+.reason-card{background:var(--white);border-radius:var(--r);padding:1.4rem;box-shadow:var(--shadow);border-bottom:4px solid var(--c2)}
+.reason-icon{font-size:1.7rem;margin-bottom:.5rem}
+.reason-title{font-weight:800;color:var(--text1);margin-bottom:.3rem;font-size:.95rem}
+.reason-body{font-size:.83rem;color:var(--text3);line-height:1.7}
+
+/* STRENGTHS */
+.str-list{display:flex;flex-direction:column;gap:.6rem}
+.str-item{display:flex;align-items:center;gap:.8rem;background:var(--white);padding:.8rem 1rem;border-radius:var(--r);box-shadow:var(--shadow)}
+.str-dot{width:10px;height:10px;border-radius:2px;background:var(--c1);flex-shrink:0}
+.str-text{font-size:.88rem;font-weight:600;color:var(--text1)}
+
+/* HOURS */
+.hours-bg{background:var(--c1);color:#fff}
+.hours-inner{display:flex;flex-wrap:wrap;gap:2rem}
+.hours-block h3{font-size:1rem;font-weight:800;margin-bottom:.8rem;opacity:.7;font-size:.8rem;letter-spacing:.1em}
+.hours-row{display:flex;gap:1rem;margin-bottom:.3rem;font-size:.88rem}
+.hours-day{opacity:.7;width:80px}
+.hours-time{font-weight:700}
+.hours-closed{color:#FCA5A5}
+
+/* CTA */
+.cta-section{background:var(--bg);text-align:center;padding:3rem 5vw;border-top:1px solid #EDD;}
+.cta-section h2{font-size:1.3rem;font-weight:800;color:var(--text1);margin-bottom:.4rem}
+.cta-section p{color:var(--text3);margin-bottom:1.5rem;font-size:.88rem}
+.cta-btn{display:inline-block;background:var(--c1);color:#fff;font-weight:800;padding:1rem 2.5rem;border-radius:8px;text-decoration:none;font-size:.95rem;box-shadow:var(--shadow)}
+
+footer{background:var(--text1);color:rgba(255,255,255,.5);padding:2rem 5vw;text-align:center;font-size:.76rem;line-height:2}
+footer strong{color:rgba(255,255,255,.85)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">🍚 定食屋 まるや</div>
+  <a class="nav-cta" href="https://tabelog.com/" target="_blank">アクセス・営業時間</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">秋田市エリア ・ 食堂</div>
+  <h1>毎日食べたい、<br><em>地元の味。</em></h1>
+  <p class="hero-copy">地元の食材をたっぷり使った、手作りの定食。毎日でも飽きない、ほっとする味をお届けします。</p>
+  <div class="hero-stars">
+    <span class="stars">★★★★★</span>
+    <strong>4.3</strong>
+    <span style="opacity:.7">（38件の口コミ）</span>
+  </div>
+  <div class="hero-tags">
+    <span class="hero-tag">🏠 地元食材使用</span>
+    <span class="hero-tag">🍱 日替わりランチあり</span>
+    <span class="hero-tag">👨‍👩‍👧 ファミリー歓迎</span>
+  </div>
+  <div class="hero-cta">
+    <a class="btn-warm" href="https://tabelog.com/" target="_blank">場所・時間を確認する</a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Today's Menu</div>
+  <div class="section-title">おすすめメニュー</div>
+  <div class="section-sub">季節の素材を使った手作りの味</div>
+  <div class="menu-grid">
+        <div class="menu-card"><div class="menu-img">🍱</div><div class="menu-body"><div class="menu-name">日替わり定食</div><div class="menu-price">750円</div><div class="menu-note">毎日変わる旬の一品</div></div></div>
+    <div class="menu-card"><div class="menu-img">🐟</div><div class="menu-body"><div class="menu-name">焼き魚定食</div><div class="menu-price">900円</div><div class="menu-note">地元産の魚を使用</div></div></div>
+    <div class="menu-card"><div class="menu-img">🥩</div><div class="menu-body"><div class="menu-name">生姜焼き定食</div><div class="menu-price">850円</div><div class="menu-note">ご飯おかわり無料</div></div></div>
+    <div class="menu-card"><div class="menu-img">🍜</div><div class="menu-body"><div class="menu-name">ラーメン＋ライス</div><div class="menu-price">800円</div><div class="menu-note">手打ち麺でボリューム満点</div></div></div>
+    <div class="menu-card"><div class="menu-img">🍳</div><div class="menu-body"><div class="menu-name">朝食セット</div><div class="menu-price">600円</div><div class="menu-note">7:00〜10:00限定</div></div></div>
+    <div class="menu-card"><div class="menu-img">🍛</div><div class="menu-body"><div class="menu-name">カレー定食</div><div class="menu-price">780円</div><div class="menu-note">ルーから手作り</div></div></div>
+  </div>
+</div>
+
+<div class="section story-bg">
+  <div class="section-label">Our Story</div>
+  <div class="section-title">店主から一言</div>
+  <div class="story-inner">
+    <div class="story-icon">👨‍🍳</div>
+    <div class="story-text">
+      <h3>定食屋 まるやへようこそ</h3>
+      <p>地元の皆様に長く愛され続けることを目標に、毎日丁寧に料理を作っています。素材選びから味付けまで、一つひとつ手を抜かずに仕上げています。ランチも夜も、気軽に立ち寄っていただける場所でありたいと思っています。</p>
+      <div class="story-sign">— 定食屋 まるや 店主より</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Why Choose Us</div>
+  <div class="section-title">選ばれ続ける理由</div>
+  <div class="reason-grid">
+        <div class="reason-card">
+      <div class="reason-icon">🏠</div>
+      <div class="reason-title">地元食材へのこだわり</div>
+      <div class="reason-body">地域の農家・漁師から仕入れた食材を使用。鮮度と安心感にこだわっています。</div>
+    </div>
+    <div class="reason-card">
+      <div class="reason-icon">👨‍🍳</div>
+      <div class="reason-title">手作りにこだわった味</div>
+      <div class="reason-body">インスタント・冷凍食品は使いません。出汁から丁寧に取った、本物の手作りの味です。</div>
+    </div>
+    <div class="reason-card">
+      <div class="reason-icon">💛</div>
+      <div class="reason-title">地域に愛される食堂</div>
+      <div class="reason-body">ランチタイムには常連さんで賑わう地元の定番。家族全員が安心して食べられます。</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="voices">
+  <div class="section-label">Reviews</div>
+  <div class="section-title">お客様の声</div>
+  <div class="section-sub">Googleマップ 38件の口コミより</div>
+  <div class="voice-list">
+        <div class="voice-card">
+      <div class="voice-avatar">S</div>
+      <div>
+        <div class="voice-meta">
+          <span class="voice-name">30代 男性</span>
+          <span class="voice-stars">★★★★☆</span>
+          <span class="voice-tag">週2〜3回</span>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">メニュー: 日替わり定食</div>
+        <div class="voice-text">「安くて美味しくてボリューム満点。地元の野菜が使われていて、体にも優しいです。」</div>
+        <div class="voice-date">Google マップ 口コミより</div>
+      </div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-avatar">M</div>
+      <div>
+        <div class="voice-meta">
+          <span class="voice-name">40代 女性</span>
+          <span class="voice-stars">★★★★☆</span>
+          <span class="voice-tag">ランチ常連</span>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">メニュー: 焼き魚定食</div>
+        <div class="voice-text">「魚が新鮮で、ご飯との相性も抜群。毎週来たくなるお気に入りのお店です。」</div>
+        <div class="voice-date">Google マップ 口コミより</div>
+      </div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-avatar">K</div>
+      <div>
+        <div class="voice-meta">
+          <span class="voice-name">50代 男性</span>
+          <span class="voice-stars">★★★★☆</span>
+          <span class="voice-tag">長年の常連</span>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">メニュー: 生姜焼き定食</div>
+        <div class="voice-text">「ここの生姜焼きは格別。たっぷりの量で大満足。地元の宝です。」</div>
+        <div class="voice-date">Google マップ 口コミより</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Strengths</div>
+  <div class="section-title">お店の特長</div>
+  <div class="str-list">
+        <div class="str-item"><div class="str-dot"></div><div class="str-text">地元食材を使った手作りの味</div></div>
+    <div class="str-item"><div class="str-dot"></div><div class="str-text">毎日変わる日替わりメニュー</div></div>
+    <div class="str-item"><div class="str-dot"></div><div class="str-text">リーズナブルな価格設定</div></div>
+    <div class="str-item"><div class="str-dot"></div><div class="str-text">ご飯おかわり無料（一部メニュー）</div></div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <h2>ぜひ一度、食べに来てください</h2>
+  <p>営業時間やアクセスはこちらからご確認いただけます</p>
+  <a class="cta-btn" href="https://tabelog.com/" target="_blank">アクセス・お問い合わせ</a>
+</div>
+
+<footer>
+  <strong>定食屋 まるや</strong><br>
+  秋田市エリア ・ 食堂<br>
+  <small style="opacity:.4">※試作品 — このページは制作デモです</small>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
+},{threshold:.15});
+document.querySelectorAll('.voice-card').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
