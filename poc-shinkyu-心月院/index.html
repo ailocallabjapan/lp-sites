@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>心月院 | 船橋市の鍼灸院</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --c1:#065F46;
+  --c2:#10B981;
+  --bg:#F0FDF4;
+  --cream:#FDFAF4;
+  --text1:#064E3B;
+  --text2:#374151;
+  --text3:#6B7280;
+  --white:#FFFFFF;
+  --r:14px;
+  --shadow:0 4px 24px rgba(6,95,70,.1);
+}
+body{font-family:'Hiragino Mincho ProN','Noto Serif JP','Georgia',serif;background:var(--cream);color:var(--text2);line-height:1.8}
+
+/* NAV */
+nav{background:var(--white);border-bottom:2px solid var(--c1);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.nav-name{font-size:1rem;font-weight:700;color:var(--c1);letter-spacing:.05em}
+.nav-cta{background:var(--c1);color:#fff;padding:.5rem 1.2rem;border-radius:6px;font-size:.85rem;font-weight:700;text-decoration:none}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,#022C22 0%,var(--c1) 55%,#065F46 100%);color:#fff;padding:4rem 5vw;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:60px;background:var(--cream);clip-path:ellipse(55% 100% at 50% 100%)}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);border-radius:6px;padding:.3rem .9rem;font-size:.78rem;letter-spacing:.06em;margin-bottom:1.2rem}
+.hero h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:900;line-height:1.3;margin-bottom:.8rem}
+.hero h1 em{font-style:normal;color:#86EFAC;font-size:1.1em}
+.hero-copy{font-size:.95rem;opacity:.88;margin-bottom:1.5rem;font-family:'Hiragino Kaku Gothic ProN',sans-serif}
+.hero-stars{display:flex;align-items:center;gap:.6rem;margin-bottom:2rem;font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:.88rem}
+.hero-stars .stars{color:#FDE68A;letter-spacing:.1rem}
+.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn-main{background:#86EFAC;color:#022C22;font-weight:800;padding:.9rem 2rem;border-radius:8px;text-decoration:none;font-size:.95rem;font-family:'Hiragino Kaku Gothic ProN',sans-serif;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,0,0,.2)}
+.btn-main:hover{transform:translateY(-2px)}
+.btn-sub{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5);font-weight:600;padding:.85rem 1.5rem;border-radius:8px;text-decoration:none;font-size:.88rem;font-family:'Hiragino Kaku Gothic ProN',sans-serif}
+
+/* SYMPTOMS */
+.section{padding:3rem 5vw}
+.label{font-size:.72rem;letter-spacing:.15em;color:var(--c1);font-weight:700;margin-bottom:.4rem;font-family:'Hiragino Kaku Gothic ProN',sans-serif}
+.title{font-size:clamp(1.2rem,3.5vw,1.6rem);font-weight:800;color:var(--text1);margin-bottom:.4rem}
+.sub{color:var(--text3);font-size:.88rem;margin-bottom:1.8rem;font-family:'Hiragino Kaku Gothic ProN',sans-serif}
+
+.symptom-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.9rem}
+.symptom-card{background:var(--white);border-radius:var(--r);padding:1.2rem .8rem;text-align:center;box-shadow:var(--shadow);border-bottom:3px solid var(--c2)}
+.symptom-icon{font-size:1.8rem;display:block;margin-bottom:.5rem}
+.symptom-name{font-size:.82rem;font-weight:700;color:var(--text1);font-family:'Hiragino Kaku Gothic ProN',sans-serif}
+
+/* FLOW STEPS */
+.flow-bg{background:var(--bg)}
+.flow-steps{display:flex;flex-direction:column;gap:1rem;position:relative}
+.flow-step{display:flex;gap:1.2rem;align-items:flex-start;background:var(--white);padding:1.4rem;border-radius:var(--r);box-shadow:var(--shadow)}
+.step-num{width:40px;height:40px;border-radius:50%;background:var(--c1);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;flex-shrink:0;font-family:'Hiragino Kaku Gothic ProN',sans-serif}
+.step-title{font-weight:800;color:var(--text1);margin-bottom:.3rem;font-family:'Hiragino Kaku Gothic ProN',sans-serif}
+.step-body{font-size:.85rem;color:var(--text3);line-height:1.7;font-family:'Hiragino Kaku Gothic ProN',sans-serif}
+
+/* REASONS */
+.reason-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.4rem}
+.reason-card{background:var(--white);border-radius:var(--r);padding:1.6rem;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.reason-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--c1),var(--c2))}
+.reason-icon{font-size:1.8rem;margin-bottom:.7rem}
+.reason-title{font-weight:800;color:var(--text1);margin-bottom:.4rem;font-family:'Hiragino Kaku Gothic ProN',sans-serif}
+.reason-body{font-size:.85rem;color:var(--text3);line-height:1.7;font-family:'Hiragino Kaku Gothic ProN',sans-serif}
+
+/* VOICES */
+.voices-bg{background:var(--bg)}
+.voice-list{display:flex;flex-direction:column;gap:1rem}
+.voice-card{background:var(--white);border-radius:var(--r);padding:1.4rem;box-shadow:var(--shadow);display:flex;gap:1rem;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s;font-family:'Hiragino Kaku Gothic ProN',sans-serif}
+.voice-card.visible{opacity:1;transform:none}
+.voice-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0}
+.voice-meta{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.3rem}
+.voice-name{font-weight:700;font-size:.86rem;color:var(--text1)}
+.voice-stars{color:#FBBF24;font-size:.9rem}
+.voice-tag{background:var(--bg);color:var(--c1);font-size:.7rem;padding:.15rem .5rem;border-radius:999px;font-weight:700}
+.voice-text{font-size:.88rem;color:var(--text2);line-height:1.75}
+.voice-date{font-size:.7rem;color:var(--text3);margin-top:.5rem}
+
+/* STRENGTHS */
+.str-list{display:flex;flex-direction:column;gap:.7rem}
+.str-item{display:flex;align-items:center;gap:.7rem;background:var(--white);padding:.8rem 1rem;border-radius:var(--r);box-shadow:var(--shadow);font-family:'Hiragino Kaku Gothic ProN',sans-serif}
+.str-dot{width:8px;height:8px;border-radius:50%;background:var(--c1);flex-shrink:0}
+.str-text{font-size:.88rem;font-weight:600;color:var(--text1)}
+
+/* PRICE */
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
+.menu-card{background:var(--white);border-radius:var(--r);padding:1.4rem;box-shadow:var(--shadow);border-top:3px solid var(--c2);font-family:'Hiragino Kaku Gothic ProN',sans-serif}
+.menu-name{font-weight:800;color:var(--text1);margin-bottom:.4rem}
+.menu-price{font-size:1.1rem;color:var(--c1);font-weight:800;margin-bottom:.3rem}
+.menu-desc{font-size:.8rem;color:var(--text3)}
+
+/* CTA */
+.cta-section{background:var(--c1);color:#fff;text-align:center;padding:3.5rem 5vw}
+.cta-section h2{font-size:1.3rem;font-weight:800;margin-bottom:.5rem}
+.cta-section p{opacity:.88;margin-bottom:1.5rem;font-size:.9rem;font-family:'Hiragino Kaku Gothic ProN',sans-serif}
+.cta-btn{display:inline-block;background:#fff;color:var(--c1);font-weight:800;padding:1rem 2.5rem;border-radius:8px;text-decoration:none;font-size:.95rem;font-family:'Hiragino Kaku Gothic ProN',sans-serif;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+
+footer{background:#022C22;color:rgba(255,255,255,.55);padding:2rem 5vw;text-align:center;font-size:.76rem;line-height:2;font-family:'Hiragino Kaku Gothic ProN',sans-serif}
+footer strong{color:#fff}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">心月院</span>
+  <a class="nav-cta" href="https://shingetsuin.net/contact" target="_blank">ご予約はこちら</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">船橋市 ・ 鍼灸院</div>
+  <h1>からだの不調、<br><em>根本から</em>ケアします</h1>
+  <p class="hero-copy">東洋医学の知恵と技術で、からだの内側から整えます。初めての方も安心して受けていただける丁寧な施術を心がけています。</p>
+  <div class="hero-stars">
+    <span class="stars">★★★★★</span>
+    <strong>4.2</strong>
+    <span>（20件の口コミ）</span>
+  </div>
+  <div class="hero-btns">
+    <a class="btn-main" href="https://shingetsuin.net/contact" target="_blank">ご予約・ご相談</a>
+    <a class="btn-sub" href="#voices">患者様の声を見る</a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="label">Symptoms</div>
+  <div class="title">こんな症状でお悩みの方へ</div>
+  <div class="sub">症状をクリックしてお気軽にご相談ください</div>
+  <div class="symptom-grid">
+        <div class="symptom-card"><span class="symptom-icon">🌸</span><div class="symptom-name">女性特有のお悩み</div></div>
+    <div class="symptom-card"><span class="symptom-icon">💆</span><div class="symptom-name">肩こり・頭痛</div></div>
+    <div class="symptom-card"><span class="symptom-icon">🦴</span><div class="symptom-name">腰痛・坐骨神経痛</div></div>
+    <div class="symptom-card"><span class="symptom-icon">✨</span><div class="symptom-name">美容鍼・アンチエイジング</div></div>
+    <div class="symptom-card"><span class="symptom-icon">😴</span><div class="symptom-name">不眠・ストレス</div></div>
+    <div class="symptom-card"><span class="symptom-icon">🍃</span><div class="symptom-name">冷え性・むくみ</div></div>
+    <div class="symptom-card"><span class="symptom-icon">🤰</span><div class="symptom-name">妊活・マタニティ</div></div>
+    <div class="symptom-card"><span class="symptom-icon">🔋</span><div class="symptom-name">疲労回復・免疫力UP</div></div>
+  </div>
+</div>
+
+<div class="section flow-bg">
+  <div class="label">First Visit</div>
+  <div class="title">はじめての方へ</div>
+  <div class="sub">初診からアフターケアまで、安心してお任せください</div>
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="step-num">1</div>
+      <div><div class="step-title">ご予約・お問い合わせ</div><div class="step-body">お電話またはWEBフォームから、お気軽にご連絡ください。症状や気になることを事前にお伝えいただくとスムーズです。</div></div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">2</div>
+      <div><div class="step-title">カウンセリング・問診</div><div class="step-body">いつから・どんな症状かを丁寧にお聞きします。「うまく説明できない」でも大丈夫です。何でもお話ください。</div></div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">3</div>
+      <div><div class="step-title">施術・アフターケア</div><div class="step-body">お体の状態に合わせた施術をご提案します。施術後も回復のための生活アドバイスをお伝えします。</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="label">Why Choose Us</div>
+  <div class="title">選ばれ続ける理由</div>
+  <div class="sub">船橋市で多くの方に信頼をいただいています</div>
+  <div class="reason-grid">
+        <div class="reason-card">
+      <div class="reason-icon">🌿</div>
+      <div class="reason-title">東洋医学の本格施術</div>
+      <div class="reason-body">体質や症状に合わせたオーダーメイドの施術。西洋医学と補完しながら根本改善を目指します。</div>
+    </div>
+    <div class="reason-card">
+      <div class="reason-icon">💬</div>
+      <div class="reason-title">丁寧なカウンセリング</div>
+      <div class="reason-body">「どう説明すればいいか分からない」でも大丈夫。体の声を一緒に聞いていきます。</div>
+    </div>
+    <div class="reason-card">
+      <div class="reason-icon">🔁</div>
+      <div class="reason-title">継続して通いやすい</div>
+      <div class="reason-body">「体が変わった」「続けたい」という声が多数。定期的なケアで健康維持をサポートします。</div>
+    </div>
+  </div>
+</div>
+
+<div class="section voices-bg" id="voices">
+  <div class="label">Reviews</div>
+  <div class="title">患者様の声</div>
+  <div class="sub">Googleマップ 20件の口コミより抜粋</div>
+  <div class="voice-list">
+        <div class="voice-card">
+      <div class="voice-avatar">Y</div>
+      <div>
+        <div class="voice-meta">
+          <span class="voice-name">30代 女性</span>
+          <span class="voice-stars">★★★★☆</span>
+          <span class="voice-tag">リピーター</span>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">メニュー: 美容鍼</div>
+        <div class="voice-text">「美容鍼を受けて肌のトーンが上がりました。先生がとても丁寧で話しやすいです。」</div>
+        <div class="voice-date">Google マップ 口コミより</div>
+      </div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-avatar">M</div>
+      <div>
+        <div class="voice-meta">
+          <span class="voice-name">40代 女性</span>
+          <span class="voice-stars">★★★★☆</span>
+          <span class="voice-tag">定期利用</span>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">メニュー: 肩こり改善</div>
+        <div class="voice-text">「長年の肩こりに悩んでいましたが、鍼を受けてから本当に楽になりました。」</div>
+        <div class="voice-date">Google マップ 口コミより</div>
+      </div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-avatar">K</div>
+      <div>
+        <div class="voice-meta">
+          <span class="voice-name">50代 女性</span>
+          <span class="voice-stars">★★★★☆</span>
+          <span class="voice-tag">2回目</span>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">メニュー: 冷え性改善</div>
+        <div class="voice-text">「冷え性が改善されて、体がポカポカしています。自律神経も整ってきた気がします。」</div>
+        <div class="voice-date">Google マップ 口コミより</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="label">Menu & Price</div>
+  <div class="title">施術メニュー・料金</div>
+  <div class="menu-grid">
+        <div class="menu-card"><div class="menu-name">はりきゅう 全身調整</div><div class="menu-price">6,000円〜</div><div class="menu-desc">全身の気の流れを整えます</div></div>
+    <div class="menu-card"><div class="menu-name">美容鍼</div><div class="menu-price">8,000円〜</div><div class="menu-desc">お肌のハリ・くすみ改善に</div></div>
+    <div class="menu-card"><div class="menu-name">局所治療</div><div class="menu-price">3,500円〜</div><div class="menu-desc">ピンポイントで痛みに対応</div></div>
+    <div class="menu-card"><div class="menu-name">初診カウンセリング</div><div class="menu-price">2,000円〜</div><div class="menu-desc">丁寧な問診・体質診断</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="label">Strengths</div>
+  <div class="title">院の特長</div>
+  <div class="str-list">
+        <div class="str-item"><div class="str-dot"></div><div class="str-text">国家資格鍼灸師が施術</div></div>
+    <div class="str-item"><div class="str-dot"></div><div class="str-text">東洋医学に基づいた根本改善</div></div>
+    <div class="str-item"><div class="str-dot"></div><div class="str-text">初めての方に丁寧なカウンセリング</div></div>
+    <div class="str-item"><div class="str-dot"></div><div class="str-text">女性施術師による安心対応</div></div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <h2>まずはお気軽にお問い合わせください</h2>
+  <p>「治るか不安」「初めてで緊張する」そんな方こそ、ぜひご相談ください。</p>
+  <a class="cta-btn" href="https://shingetsuin.net/contact" target="_blank">ご予約・お問い合わせ</a>
+</div>
+
+<footer>
+  <strong>心月院</strong><br>
+  船橋市 ・ 鍼灸院<br>
+  <small style="opacity:.45">※試作品 — このページは制作デモです</small>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
+}, {threshold:.15});
+document.querySelectorAll('.voice-card').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
