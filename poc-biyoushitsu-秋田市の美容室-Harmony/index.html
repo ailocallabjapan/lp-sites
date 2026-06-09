@@ -4,134 +4,282 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>秋田市の美容室 Harmony | 秋田市の美容室</title>
+<meta name="description" content="秋田市の美容室 Harmonyは秋田市の美容室です。あなたの髪の悩みに寄り添い、理想のスタイルを一緒に叶えます。経験豊富なスタイリストが丁寧に対応いたします。">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --c1:#9D174D;
   --c2:#EC4899;
-  --gold:#C9A84C;
-  --dark:#1C1C1E;
-  --bg:#F7F7F5;
-  --text1:#111111;
-  --text2:#333333;
-  --text3:#777777;
+  --bg:#FFF5F8;
+  --cream:#FFFCFD;
+  --text1:#3D1F2B;
+  --text2:#5A4049;
+  --text3:#9B838C;
   --white:#FFFFFF;
-  --r:8px;
-  --shadow:0 4px 24px rgba(0,0,0,.09);
+  --r:18px;
+  --shadow:0 6px 28px rgba(190,90,130,.12);
 }
-body{font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;background:var(--bg);color:var(--text2);line-height:1.7}
+html{scroll-behavior:smooth}
+body{font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;background:var(--cream);color:var(--text2);line-height:1.8;padding-bottom:74px}
+
+/* PROGRESS BAR */
+#prog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--c1),var(--c2));width:0%;z-index:9999}
+
+/* DEMO BANNER */
+.demo-banner{background:var(--c1);color:#fff;text-align:center;padding:.4rem 5vw;font-size:.72rem;letter-spacing:.04em}
+.demo-banner strong{color:#FFE3EF}
 
 /* NAV */
-nav{background:var(--dark);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100}
-.nav-logo{color:#fff;font-size:1.1rem;font-weight:900;letter-spacing:.1em}
-.nav-logo span{color:var(--gold)}
-.nav-cta{background:var(--gold);color:var(--dark);padding:.5rem 1.2rem;font-size:.82rem;font-weight:800;text-decoration:none;letter-spacing:.05em}
+nav{background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid #FBD9E6;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:62px;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(190,90,130,.06)}
+.nav-name{font-size:1rem;font-weight:700;color:var(--c1);letter-spacing:.05em}
+.nav-badge{background:var(--c2);color:#fff;font-size:.62rem;padding:.13rem .5rem;border-radius:999px;margin-left:.4rem;font-weight:700}
+.nav-cta{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;padding:.5rem 1.2rem;border-radius:999px;font-size:.82rem;font-weight:700;text-decoration:none;box-shadow:0 3px 12px rgba(190,90,130,.25)}
+
+/* URGENCY */
+.urgency{background:linear-gradient(90deg,var(--c1),var(--c2));color:#fff;padding:.5rem 5vw;font-size:.78rem;text-align:center;font-weight:700;letter-spacing:.03em;display:flex;align-items:center;justify-content:center;gap:.6rem}
+.urgency-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.85);animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 
 /* HERO */
-.hero{background:var(--dark);color:#fff;padding:5rem 5vw 4rem;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
-.hero::before{content:'BARBER';position:absolute;top:-20px;right:-10px;font-size:clamp(80px,18vw,160px);font-weight:900;color:rgba(255,255,255,.04);letter-spacing:-.02em;line-height:1;pointer-events:none}
-.hero-tag{font-size:.72rem;color:var(--gold);letter-spacing:.15em;font-weight:700;margin-bottom:1rem}
-.hero h1{font-size:clamp(2rem,6vw,3.2rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:.8rem}
-.hero h1 em{font-style:normal;display:block;color:var(--gold)}
-.hero-copy{font-size:.92rem;color:rgba(255,255,255,.7);margin-bottom:1.5rem;max-width:480px}
-.hero-stars{display:flex;align-items:center;gap:.6rem;margin-bottom:2rem;font-size:.86rem;color:rgba(255,255,255,.8)}
-.hero-stars .stars{color:var(--gold);letter-spacing:.05rem}
+.hero{background:linear-gradient(155deg,#FFFFFF 0%,#FFEAF2 45%,#FCD7E6 100%);color:var(--text1);padding:3.5rem 5vw 5.5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Ccircle cx='15' cy='15' r='2' fill='rgba(220,120,160,.10)'/%3E%3Ccircle cx='60' cy='55' r='3' fill='rgba(220,120,160,.07)'/%3E%3C/svg%3E")}
+.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:55px;background:var(--cream);clip-path:ellipse(60% 100% at 50% 100%)}
+.hero-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.hero-tag{display:inline-flex;align-items:center;gap:.3rem;background:rgba(255,255,255,.7);border:1px solid var(--c2);color:var(--c1);border-radius:999px;padding:.28rem .85rem;font-size:.75rem;font-weight:700}
+.hero h1{font-size:clamp(1.55rem,4.6vw,2.3rem);font-weight:900;line-height:1.3;margin-bottom:.7rem;color:var(--text1)}
+.hero h1 em{font-style:normal;color:var(--c1)}
+.hero-copy{font-size:.93rem;color:var(--text2);margin-bottom:1.2rem;line-height:1.9;max-width:500px}
+.hero-google{display:inline-flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.85);border:1px solid #FBD0E0;border-radius:12px;padding:.55rem 1rem;margin-bottom:1.6rem;box-shadow:var(--shadow)}
+.g-logo{font-weight:900;color:#EA4335;background:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;letter-spacing:-.03em;flex-shrink:0;border:1px solid #eee}
+.g-stars{color:#F5B301;font-size:1rem;letter-spacing:.05rem}
+.g-info{font-size:.8rem;color:var(--text2)}
 .hero-btns{display:flex;gap:.8rem;flex-wrap:wrap}
-.btn-gold{background:var(--gold);color:var(--dark);font-weight:800;padding:.9rem 2rem;text-decoration:none;font-size:.92rem;letter-spacing:.05em;transition:opacity .2s}
-.btn-gold:hover{opacity:.85}
-.btn-outline{border:1px solid rgba(255,255,255,.3);color:#fff;font-weight:600;padding:.85rem 1.6rem;text-decoration:none;font-size:.88rem}
+.btn-main{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;font-weight:800;padding:.9rem 2.1rem;border-radius:999px;text-decoration:none;font-size:.93rem;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 22px rgba(190,90,130,.3);display:inline-flex;align-items:center;gap:.4rem}
+.btn-main:hover{transform:translateY(-2px)}
+.btn-main::before{content:'💇‍♀️'}
+.btn-sub{background:rgba(255,255,255,.8);color:var(--c1);border:1.5px solid var(--c2);font-weight:700;padding:.85rem 1.5rem;border-radius:999px;text-decoration:none;font-size:.88rem}
 
-/* MENU */
+/* STATS */
+.stats-strip{background:var(--white);padding:1.8rem 5vw;box-shadow:var(--shadow)}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:580px;margin:0 auto;text-align:center}
+.stat-num{font-size:1.8rem;font-weight:900;color:var(--c1);line-height:1;display:block}
+.stat-unit{font-size:.74rem;font-weight:700;color:var(--c1)}
+.stat-label{font-size:.73rem;color:var(--text3);margin-top:.2rem}
+.stat-divider{border-left:1px solid #FBD9E6}
+
+/* TRUST */
+.trust-strip{background:var(--bg);padding:1.3rem 5vw;border-top:1px solid #FBD9E6;border-bottom:1px solid #FBD9E6}
+.trust-scroll{display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center}
+.trust-badge{display:flex;align-items:center;gap:.4rem;background:var(--white);border:1.5px solid var(--c2);color:var(--c1);padding:.33rem .9rem;border-radius:999px;font-size:.77rem;font-weight:700}
+
+/* SECTION */
 .section{padding:3rem 5vw}
-.section-label{font-size:.7rem;letter-spacing:.2em;font-weight:700;color:var(--c1);margin-bottom:.4rem}
-.section-title{font-size:clamp(1.2rem,3vw,1.6rem);font-weight:900;color:var(--text1);margin-bottom:.4rem;letter-spacing:-.01em}
-.section-sub{font-size:.86rem;color:var(--text3);margin-bottom:1.8rem}
+.label{font-size:.72rem;letter-spacing:.16em;color:var(--c1);font-weight:700;margin-bottom:.4rem;text-transform:uppercase}
+.title{font-size:clamp(1.2rem,3.5vw,1.65rem);font-weight:800;color:var(--text1);margin-bottom:.4rem}
+.sub{color:var(--text3);font-size:.87rem;margin-bottom:1.8rem}
 
-.price-table{width:100%;border-collapse:collapse}
-.price-table tr{border-bottom:1px solid #E0E0E0}
-.price-table tr:first-child{border-top:1px solid #E0E0E0}
-.price-table td{padding:1rem .5rem;font-size:.9rem}
-.price-table .menu-name{font-weight:700;color:var(--text1)}
-.price-table .menu-desc{font-size:.78rem;color:var(--text3);display:block;margin-top:.2rem}
-.price-table .menu-price{font-weight:800;color:var(--dark);font-size:1.05rem;text-align:right;white-space:nowrap}
-.price-note{font-size:.78rem;color:var(--text3);margin-top:.8rem}
+/* SYMPTOMS / 髪のお悩み */
+.symptom-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.9rem}
+.symptom-card{background:var(--white);border-radius:var(--r);padding:1.3rem .8rem;text-align:center;box-shadow:var(--shadow);border-bottom:3px solid var(--c2);transition:transform .2s}
+.symptom-card:hover{transform:translateY(-4px)}
+.symptom-icon{font-size:1.9rem;display:block;margin-bottom:.5rem}
+.symptom-name{font-size:.81rem;font-weight:700;color:var(--text1)}
 
 /* REASONS */
-.reasons-bg{background:var(--dark)}
-.reason-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem}
-.reason-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:1.5rem;color:#fff}
-.reason-icon{font-size:1.8rem;margin-bottom:.6rem}
-.reason-title{font-weight:800;margin-bottom:.4rem;color:#fff}
-.reason-body{font-size:.84rem;color:rgba(255,255,255,.65);line-height:1.7}
+.reason-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.4rem}
+.reason-card{background:var(--white);border-radius:var(--r);padding:1.6rem;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform .2s}
+.reason-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--c1),var(--c2))}
+.reason-card:hover{transform:translateY(-3px)}
+.reason-num{font-size:2.5rem;font-weight:900;color:var(--c2);opacity:.18;position:absolute;top:.5rem;right:.8rem;line-height:1}
+.reason-icon{font-size:1.9rem;margin-bottom:.7rem}
+.reason-title{font-weight:800;color:var(--text1);margin-bottom:.4rem}
+.reason-body{font-size:.85rem;color:var(--text3);line-height:1.7}
+
+/* FLOW */
+.flow-bg{background:var(--bg)}
+.flow-steps{display:flex;flex-direction:column;gap:.8rem}
+.flow-step{display:flex;gap:1.2rem;align-items:flex-start;background:var(--white);padding:1.4rem;border-radius:var(--r);box-shadow:var(--shadow);opacity:0;transform:translateX(-20px);transition:opacity .5s,transform .5s}
+.flow-step.visible{opacity:1;transform:none}
+.step-num{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;flex-shrink:0}
+.step-title{font-weight:800;color:var(--text1);margin-bottom:.3rem}
+.step-body{font-size:.84rem;color:var(--text3);line-height:1.7}
 
 /* VOICES */
-.voice-list{display:flex;flex-direction:column;gap:.9rem}
-.voice-card{background:var(--white);border-radius:var(--r);padding:1.3rem;box-shadow:var(--shadow);display:flex;gap:1rem;opacity:0;transform:translateX(-12px);transition:opacity .4s,transform .4s}
+.voices-bg{background:var(--bg)}
+.voice-list{display:flex;flex-direction:column;gap:1rem}
+.voice-card{background:var(--white);border-radius:var(--r);padding:1.4rem;box-shadow:var(--shadow);display:flex;gap:1rem;align-items:flex-start;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
 .voice-card.visible{opacity:1;transform:none}
-.voice-avatar{width:44px;height:44px;border-radius:50%;background:var(--dark);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;flex-shrink:0;letter-spacing:-.03em}
+.voice-avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;flex-shrink:0}
+.voice-body{flex:1}
 .voice-meta{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.3rem}
-.voice-name{font-weight:700;font-size:.86rem;color:var(--text1)}
-.voice-stars{color:var(--gold);font-size:.9rem}
-.voice-tag{background:#F4F4F2;color:var(--text2);font-size:.7rem;padding:.15rem .5rem;border-radius:3px;font-weight:600}
-.voice-text{font-size:.88rem;color:var(--text2);line-height:1.7}
+.voice-name{font-weight:700;font-size:.85rem;color:var(--text1)}
+.voice-stars{color:#F5B301;font-size:.9rem}
+.voice-tag{background:var(--bg);color:var(--c1);font-size:.68rem;padding:.12rem .5rem;border-radius:999px;font-weight:700}
+.voice-text{font-size:.87rem;color:var(--text2);line-height:1.75}
 .voice-date{font-size:.7rem;color:var(--text3);margin-top:.4rem}
+.google-attr{text-align:right;font-size:.72rem;color:var(--text3);margin-top:1rem;display:flex;align-items:center;justify-content:flex-end;gap:.3rem}
+
+/* MENU */
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
+.menu-card{background:var(--white);border-radius:var(--r);padding:1.4rem;box-shadow:var(--shadow);border-top:3px solid var(--c2);transition:transform .2s}
+.menu-card:hover{transform:translateY(-3px)}
+.menu-name{font-weight:800;color:var(--text1);margin-bottom:.4rem}
+.menu-price{font-size:1.1rem;color:var(--c1);font-weight:900;margin-bottom:.3rem}
+.menu-desc{font-size:.8rem;color:var(--text3)}
+
+/* HOURS */
+.hours-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
+.hours-card{background:var(--white);border-radius:var(--r);padding:1.3rem;border-left:4px solid var(--c1)}
+.hours-title{font-weight:800;color:var(--text1);margin-bottom:.5rem}
+.hours-time{font-size:1.1rem;font-weight:900;color:var(--c1)}
+.hours-note{font-size:.78rem;color:var(--text3);margin-top:.3rem}
 
 /* STRENGTHS */
 .str-list{display:flex;flex-direction:column;gap:.6rem}
-.str-item{display:flex;align-items:center;gap:.8rem;background:var(--white);padding:.8rem 1rem;border-radius:var(--r);box-shadow:var(--shadow)}
-.str-dot{width:8px;height:8px;background:var(--gold);flex-shrink:0}
+.str-item{display:flex;align-items:center;gap:.8rem;background:var(--white);padding:.85rem 1.1rem;border-radius:var(--r);box-shadow:var(--shadow);transition:transform .15s}
+.str-item:hover{transform:translateX(4px)}
+.str-icon,.str-dot{font-size:1.2rem;flex-shrink:0}
+.str-dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));font-size:inherit}
 .str-text{font-size:.88rem;font-weight:600;color:var(--text1)}
 
 /* CTA */
-.cta-section{background:var(--dark);color:#fff;text-align:center;padding:3.5rem 5vw}
-.cta-section h2{font-size:1.4rem;font-weight:900;letter-spacing:-.01em;margin-bottom:.4rem}
-.cta-section p{color:rgba(255,255,255,.6);margin-bottom:1.5rem;font-size:.88rem}
-.cta-btn{display:inline-block;background:var(--gold);color:var(--dark);font-weight:800;padding:1rem 2.5rem;text-decoration:none;font-size:.95rem;letter-spacing:.05em}
+.cta-section{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;text-align:center;padding:3.5rem 5vw;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Ccircle cx='60' cy='60' r='50' fill='none' stroke='rgba(255,255,255,.08)' stroke-width='50'/%3E%3C/svg%3E") center/250px 250px}
+.cta-label{display:inline-block;background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:.28rem .85rem;font-size:.74rem;font-weight:700;letter-spacing:.06em;margin-bottom:.8rem}
+.cta-section h2{font-size:clamp(1.2rem,3.5vw,1.6rem);font-weight:900;margin-bottom:.5rem}
+.cta-section p{opacity:.95;margin-bottom:1.8rem;font-size:.9rem;max-width:400px;margin-left:auto;margin-right:auto}
+.cta-btn{display:inline-flex;align-items:center;gap:.5rem;background:#fff;color:var(--c1);font-weight:800;padding:1rem 2.4rem;border-radius:999px;text-decoration:none;font-size:.98rem;box-shadow:0 4px 20px rgba(0,0,0,.18);transition:transform .2s}
+.cta-btn:hover{transform:translateY(-2px)}
+.cta-btn::before{content:'✉️'}
+.cta-note{font-size:.75rem;opacity:.8;margin-top:.9rem}
 
-footer{background:#111;color:rgba(255,255,255,.4);padding:2rem 5vw;text-align:center;font-size:.76rem;line-height:2}
-footer strong{color:rgba(255,255,255,.8)}
+/* FOOTER */
+footer{background:#3D1F2B;color:rgba(255,255,255,.55);padding:2rem 5vw;text-align:center;font-size:.75rem;line-height:2.2}
+footer strong{color:#fff;font-size:.85rem}
+.footer-demo{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:6px;padding:.18rem .65rem;font-size:.68rem;margin-top:.5rem;opacity:.65}
+
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--c2),transparent);margin:0 5vw}
+
+/* FLOATING CTA */
+.float-cta{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,var(--c1),var(--c2));padding:.8rem 5vw;display:flex;align-items:center;justify-content:space-between;gap:.8rem;z-index:200;box-shadow:0 -4px 20px rgba(190,90,130,.25)}
+.float-cta-text{color:#fff;font-size:.82rem;font-weight:700;line-height:1.3}
+.float-cta-text span{font-size:.7rem;opacity:.85;font-weight:400}
+.float-cta-btn{background:#fff;color:var(--c1);font-weight:800;padding:.65rem 1.4rem;border-radius:999px;text-decoration:none;font-size:.88rem;white-space:nowrap;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,.12)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero>*{animation:fadeUp .6s ease both}
+.hero-tags{animation-delay:.1s}
+.hero h1{animation-delay:.2s}
+.hero-copy{animation-delay:.3s}
+.hero-google{animation-delay:.4s}
+.hero-btns{animation-delay:.5s}
 </style>
 </head>
 <body>
 
+<div id="prog"></div>
+
+<div class="demo-banner">これは AI が自動生成した<strong>試作品</strong>です（制作デモ）</div>
+
 <nav>
-  <div class="nav-logo">秋田市の美容室 Harmony <span>—</span></div>
-  <a class="nav-cta" href="https://hair-harmony.com/contact" target="_blank">ご予約</a>
+  <span class="nav-name">秋田市の美容室 Harmony<span class="nav-badge">予約受付中</span></span>
+  <a class="nav-cta" href="https://hair-harmony.com/contact" target="_blank">ご予約はこちら</a>
 </nav>
 
+<div class="urgency">
+  <div class="urgency-dot"></div>
+  人気スタイリスト予約受付中 — 週末は埋まりやすいのでお早めに
+  <div class="urgency-dot"></div>
+</div>
+
 <div class="hero">
-  <div class="hero-tag">秋田市 ・ 美容室</div>
-  <h1>職人の手で、<em>丁寧に整える。</em></h1>
+  <div class="hero-tags">
+    <span class="hero-tag">📍 秋田市</span>
+    <span class="hero-tag">💕 美容室</span>
+  </div>
+  <h1>なりたいを叶える、<br><em>あなただけ</em>のスタイルへ</h1>
   <p class="hero-copy">あなたの髪の悩みに寄り添い、理想のスタイルを一緒に叶えます。経験豊富なスタイリストが丁寧に対応いたします。</p>
-  <div class="hero-stars">
-    <span class="stars">★★★★★</span>
-    <strong>4.2</strong>
-    <span>（口コミ 18件）</span>
+  <div class="hero-google">
+    <div class="g-logo">G</div>
+    <span class="g-stars">★★★★★</span>
+    <span class="g-info"><strong>4.2</strong> （18件の口コミ）</span>
   </div>
   <div class="hero-btns">
-    <a class="btn-gold" href="https://hair-harmony.com/contact" target="_blank">今すぐ予約する</a>
-    <a class="btn-outline" href="#menu">料金を確認する</a>
+    <a class="btn-main" href="https://hair-harmony.com/contact" target="_blank">ご予約・ご相談はこちら</a>
+    <a class="btn-sub" href="#voices">お客様の声を見る</a>
   </div>
 </div>
 
-<div class="section" id="menu">
-  <div class="section-label">Menu & Price</div>
-  <div class="section-title">メニュー・料金</div>
-  <div class="section-sub">すべて税込み表示</div>
-  <table class="price-table">
-        <tr><td><span class="menu-name">カット</span><span class="menu-desc">シャンプー・ブロー込み</span></td><td class="menu-price">3,300円</td></tr>
-    <tr><td><span class="menu-name">カット＋シャンプー</span><span class="menu-desc">丁寧なブロー仕上げ</span></td><td class="menu-price">4,400円</td></tr>
-    <tr><td><span class="menu-name">カット＋パーマ</span><span class="menu-desc">骨格に合わせたスタイル</span></td><td class="menu-price">9,900円〜</td></tr>
-    <tr><td><span class="menu-name">シェービング</span><span class="menu-desc">剃刀仕上げ・スキンケア込み</span></td><td class="menu-price">1,650円</td></tr>
-    <tr><td><span class="menu-name">白髪染め</span><span class="menu-desc">根本からしっかりカバー</span></td><td class="menu-price">8,800円〜</td></tr>
-  </table>
-  <p class="price-note">※シャンプー・ブロー込みのメニューです。詳しくはお問い合わせください。</p>
+<div class="stats-strip">
+  <div class="stats-grid">
+    <div>
+      <span class="stat-num" data-count="18">18</span>
+      <span class="stat-unit">件</span>
+      <div class="stat-label">Googleロ コミ</div>
+    </div>
+    <div class="stat-divider">
+      <span class="stat-num" data-count="4">4.2</span>
+      <span class="stat-unit">★</span>
+      <div class="stat-label">平均評価</div>
+    </div>
+    <div class="stat-divider">
+      <span class="stat-num" data-count="100">100+</span>
+      <span class="stat-unit">名</span>
+      <div class="stat-label">地域で愛される</div>
+    </div>
+  </div>
 </div>
 
-<div class="section reasons-bg">
-  <div class="section-label" style="color:var(--gold)">Why Choose Us</div>
-  <div class="section-title" style="color:#fff">選ばれる理由</div>
-  <div class="section-sub" style="color:rgba(255,255,255,.5)">秋田市のお客様に支持され続けています</div>
+<div class="trust-strip">
+  <div class="trust-scroll">
+    <div class="trust-badge">💁‍♀️ 丁寧なカウンセリング</div>
+    <div class="trust-badge">🌸 髪に優しい薬剤</div>
+    <div class="trust-badge">😊 学生・主婦の方歓迎</div>
+    <div class="trust-badge">✨ トレンドカラー対応</div>
+    <div class="trust-badge">💆‍♀️ 癒しのヘッドスパ</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="label">Hair Trouble</div>
+  <div class="title">こんな髪のお悩みありませんか？</div>
+  <div class="sub">あなたの髪のお悩み、お気軽にご相談ください</div>
+  <div class="symptom-grid">
+        <div class="symptom-card"><span class="symptom-icon">🌫️</span><div class="symptom-name">パサつき・ダメージ</div></div>
+    <div class="symptom-card"><span class="symptom-icon">💢</span><div class="symptom-name">広がる・まとまらない</div></div>
+    <div class="symptom-card"><span class="symptom-icon">〰️</span><div class="symptom-name">くせ毛・うねり</div></div>
+    <div class="symptom-card"><span class="symptom-icon">⚪</span><div class="symptom-name">白髪が気になる</div></div>
+    <div class="symptom-card"><span class="symptom-icon">🎨</span><div class="symptom-name">カラーの色落ち</div></div>
+    <div class="symptom-card"><span class="symptom-icon">🍂</span><div class="symptom-name">ボリュームが出ない</div></div>
+    <div class="symptom-card"><span class="symptom-icon">💇</span><div class="symptom-name">似合う髪型がわからない</div></div>
+    <div class="symptom-card"><span class="symptom-icon">✨</span><div class="symptom-name">髪のツヤがほしい</div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="label">Menu &amp; Price</div>
+  <div class="title">メニュー・料金</div>
+  <div class="sub">なりたいスタイルに合わせて選べるメニュー</div>
+  <div class="menu-grid">
+        <div class="menu-card"><div class="menu-name">カット</div><div class="menu-price">4,400円〜</div><div class="menu-desc">骨格・髪質に合わせたスタイル提案</div></div>
+    <div class="menu-card"><div class="menu-name">カラー</div><div class="menu-price">6,600円〜</div><div class="menu-desc">透明感のある理想の色に</div></div>
+    <div class="menu-card"><div class="menu-name">パーマ</div><div class="menu-price">8,800円〜</div><div class="menu-desc">柔らかく自然な質感</div></div>
+    <div class="menu-card"><div class="menu-name">トリートメント</div><div class="menu-price">3,300円〜</div><div class="menu-desc">ダメージを集中補修</div></div>
+    <div class="menu-card"><div class="menu-name">ヘッドスパ</div><div class="menu-price">4,400円〜</div><div class="menu-desc">癒しのリラックスタイム</div></div>
+    <div class="menu-card"><div class="menu-name">縮毛矯正</div><div class="menu-price">13,200円〜</div><div class="menu-desc">自然なストレートで扱いやすく</div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="label">Why Choose Us</div>
+  <div class="title">選ばれ続ける理由</div>
+  <div class="sub">秋田市で多くのお客様に愛されています</div>
   <div class="reason-grid">
         <div class="reason-card">
       <div class="reason-icon">✂️</div>
@@ -151,14 +299,38 @@ footer strong{color:rgba(255,255,255,.8)}
   </div>
 </div>
 
-<div class="section" id="voices">
-  <div class="section-label">Reviews</div>
-  <div class="section-title">お客様の声</div>
-  <div class="section-sub">Googleマップ口コミ 18件より</div>
+<div class="divider"></div>
+
+<div class="section flow-bg">
+  <div class="label">First Visit</div>
+  <div class="title">初めての方へ</div>
+  <div class="sub">ご予約から仕上がりまで、リラックスしてお過ごしください</div>
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="step-num">1</div>
+      <div><div class="step-title">ご予約・お問い合わせ</div><div class="step-body">お電話またはWebフォームからご予約ください。「なりたいイメージ」だけお伝えいただければ大丈夫です。</div></div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">2</div>
+      <div><div class="step-title">カウンセリング</div><div class="step-body">髪質やお悩み、なりたいスタイルを丁寧にヒアリング。「うまく言えない」場合も写真を見ながらご一緒に決めます。</div></div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">3</div>
+      <div><div class="step-title">施術・スタイリング</div><div class="step-body">あなたに似合うスタイルへ。仕上げにはおうちで再現しやすいセットのコツもお伝えします。</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section voices-bg" id="voices">
+  <div class="label">Reviews</div>
+  <div class="title">お客様の声</div>
+  <div class="sub">Googleマップ 18件の口コミより抜粋</div>
   <div class="voice-list">
         <div class="voice-card">
       <div class="voice-avatar">S</div>
-      <div>
+      <div class="voice-body">
         <div class="voice-meta">
           <span class="voice-name">20代 女性</span>
           <span class="voice-stars">★★★★☆</span>
@@ -171,7 +343,7 @@ footer strong{color:rgba(255,255,255,.8)}
     </div>
     <div class="voice-card">
       <div class="voice-avatar">M</div>
-      <div>
+      <div class="voice-body">
         <div class="voice-meta">
           <span class="voice-name">30代 女性</span>
           <span class="voice-stars">★★★★☆</span>
@@ -184,7 +356,7 @@ footer strong{color:rgba(255,255,255,.8)}
     </div>
     <div class="voice-card">
       <div class="voice-avatar">K</div>
-      <div>
+      <div class="voice-body">
         <div class="voice-meta">
           <span class="voice-name">40代 女性</span>
           <span class="voice-stars">★★★★☆</span>
@@ -196,11 +368,42 @@ footer strong{color:rgba(255,255,255,.8)}
       </div>
     </div>
   </div>
+  <div class="google-attr">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+    Google マップ 口コミより
+  </div>
 </div>
 
+<div class="divider"></div>
+
 <div class="section">
-  <div class="section-label">Strengths</div>
-  <div class="section-title">当店の特長</div>
+  <div class="label">Access &amp; Hours</div>
+  <div class="title">営業時間・アクセス</div>
+  <div class="sub">秋田市にてお待ちしております</div>
+  <div class="hours-grid">
+    <div class="hours-card">
+      <div class="hours-title">🕐 営業時間</div>
+      <div class="hours-time">10:00〜20:00</div>
+      <div class="hours-note">※最終受付・カット/カラーは要確認</div>
+    </div>
+    <div class="hours-card">
+      <div class="hours-title">📅 定休日</div>
+      <div class="hours-time">不定休</div>
+      <div class="hours-note">詳しくはお問い合わせください</div>
+    </div>
+    <div class="hours-card">
+      <div class="hours-title">📍 所在地</div>
+      <div class="hours-time" style="font-size:.9rem">秋田市</div>
+      <div class="hours-note">詳細はお問い合わせください</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="label">Strengths</div>
+  <div class="title">当店のこだわり</div>
   <div class="str-list">
         <div class="str-item"><div class="str-dot"></div><div class="str-text">経験豊富なスタイリストが担当</div></div>
     <div class="str-item"><div class="str-dot"></div><div class="str-text">カラー・パーマ・トリートメント全対応</div></div>
@@ -210,22 +413,59 @@ footer strong{color:rgba(255,255,255,.8)}
 </div>
 
 <div class="cta-section">
-  <h2>ご予約・お問い合わせ</h2>
-  <p>初めての方もお気軽にどうぞ。ご来店お待ちしております。</p>
-  <a class="cta-btn" href="https://hair-harmony.com/contact" target="_blank">ご予約はこちら</a>
+  <div class="cta-label">ネット予約・ご相談受付中</div>
+  <h2>まずはお気軽にご予約ください</h2>
+  <p>「イメチェンしたい」「髪のお悩みを相談したい」そんな方こそ、ぜひお越しください。</p>
+  <a class="cta-btn" href="https://hair-harmony.com/contact" target="_blank">ご予約・お問い合わせはこちら</a>
+  <p class="cta-note">📩 メールでのお問い合わせも歓迎しております</p>
 </div>
 
 <footer>
   <strong>秋田市の美容室 Harmony</strong><br>
   秋田市 ・ 美容室<br>
-  <small style="opacity:.4">※試作品 — このページは制作デモです</small>
+  <span class="footer-demo">※試作品 — このページはAIが自動生成した制作デモです</span>
 </footer>
 
+<div class="float-cta">
+  <div class="float-cta-text">
+    秋田市の美容室 Harmony<br>
+    <span>ご予約・ご相談はこちら</span>
+  </div>
+  <a class="float-cta-btn" href="https://hair-harmony.com/contact" target="_blank">今すぐ予約</a>
+</div>
+
 <script>
+const prog = document.getElementById('prog');
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  prog.style.width = pct + '%';
+});
+
 const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
-},{threshold:.15});
-document.querySelectorAll('.voice-card').forEach(el => io.observe(el));
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
+}, {threshold:.15});
+document.querySelectorAll('.voice-card,.flow-step').forEach(el => io.observe(el));
+
+function animateCount(el) {
+  const raw = el.dataset.count;
+  const target = parseFloat(raw);
+  const isFloat = raw && raw.includes('.');
+  const isPlus = target > 99;
+  const duration = 1200;
+  const start = performance.now();
+  const update = (now) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = target * eased;
+    el.textContent = isFloat ? current.toFixed(1) : (Math.floor(current) + (isPlus ? '+' : ''));
+    if (progress < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+const statsObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { animateCount(e.target); statsObs.unobserve(e.target); } });
+}, {threshold:.5});
+document.querySelectorAll('.stat-num[data-count]').forEach(el => statsObs.observe(el));
 </script>
 </body>
 </html>
