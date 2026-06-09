@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>わくだ歯科 | 浜松市中央区エリアの歯科</title>
+<meta name="description" content="わくだ歯科は浜松市中央区エリアの歯科です。お口の健康から始まる、豊かな毎日。痛みが苦手な方も安心して受けていただける丁寧な診療を心がけています。">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --c1:#0C4A6E;
+  --c2:#0EA5E9;
+  --bg:#EFF6FF;
+  --cream:#F8FBFF;
+  --text1:#0F2A47;
+  --text2:#33475B;
+  --text3:#6B7B8C;
+  --white:#FFFFFF;
+  --r:14px;
+  --shadow:0 4px 24px rgba(15,42,71,.1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;background:var(--cream);color:var(--text2);line-height:1.75;padding-bottom:72px}
+
+/* PROGRESS BAR */
+#prog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--c1),var(--c2));width:0%;z-index:9999}
+
+/* DEMO BANNER */
+.demo-banner{background:#0F2A47;color:#fff;text-align:center;padding:.4rem 5vw;font-size:.72rem;letter-spacing:.03em}
+.demo-banner strong{color:#7DD3FC}
+
+/* NAV */
+nav{background:var(--white);border-bottom:2px solid var(--c1);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.nav-name{font-size:1rem;font-weight:700;color:var(--c1);letter-spacing:.03em}
+.nav-badge{background:#0EA5E9;color:#fff;font-size:.62rem;padding:.13rem .48rem;border-radius:999px;margin-left:.4rem}
+.nav-cta{background:var(--c1);color:#fff;padding:.48rem 1.1rem;border-radius:8px;font-size:.82rem;font-weight:700;text-decoration:none}
+
+/* URGENCY */
+.urgency{background:linear-gradient(90deg,var(--c1),var(--c2));color:#fff;padding:.5rem 5vw;font-size:.78rem;text-align:center;font-weight:700;letter-spacing:.03em;display:flex;align-items:center;justify-content:center;gap:.6rem}
+.urgency-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.8);animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,#0A2540 0%,var(--c1) 55%,#0E7490 100%);color:#fff;padding:3.5rem 5vw 5.5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='10' cy='10' r='1' fill='rgba(255,255,255,.06)'/%3E%3Ccircle cx='50' cy='50' r='1.5' fill='rgba(255,255,255,.05)'/%3E%3C/svg%3E")}
+.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:55px;background:var(--cream);clip-path:ellipse(60% 100% at 50% 100%)}
+.hero-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.hero-tag{display:inline-flex;align-items:center;gap:.3rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:.28rem .8rem;font-size:.75rem}
+.hero h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:900;line-height:1.3;margin-bottom:.7rem}
+.hero h1 em{font-style:normal;color:#7DD3FC}
+.hero-copy{font-size:.93rem;opacity:.9;margin-bottom:1.2rem;line-height:1.85;max-width:500px}
+.hero-google{display:inline-flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:.55rem 1rem;margin-bottom:1.6rem}
+.g-logo{font-weight:900;color:#EA4335;background:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;letter-spacing:-.03em;flex-shrink:0}
+.g-stars{color:#FDE68A;font-size:1rem;letter-spacing:.05rem}
+.g-info{font-size:.8rem;opacity:.9}
+.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn-main{background:#7DD3FC;color:#0A2540;font-weight:800;padding:.9rem 2.1rem;border-radius:999px;text-decoration:none;font-size:.93rem;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,0,0,.25);display:inline-flex;align-items:center;gap:.4rem}
+.btn-main:hover{transform:translateY(-2px)}
+.btn-main::before{content:'🦷'}
+.btn-sub{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.5);font-weight:600;padding:.85rem 1.5rem;border-radius:999px;text-decoration:none;font-size:.88rem}
+
+/* STATS */
+.stats-strip{background:var(--white);padding:1.8rem 5vw;box-shadow:var(--shadow)}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:580px;margin:0 auto;text-align:center}
+.stat-num{font-size:1.8rem;font-weight:900;color:var(--c1);line-height:1;display:block}
+.stat-unit{font-size:.74rem;font-weight:700;color:var(--c1)}
+.stat-label{font-size:.73rem;color:var(--text3);margin-top:.2rem}
+.stat-divider{border-left:1px solid #DBEAFE}
+
+/* TRUST */
+.trust-strip{background:var(--bg);padding:1.3rem 5vw;border-top:1px solid #DBEAFE;border-bottom:1px solid #DBEAFE}
+.trust-scroll{display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center}
+.trust-badge{display:flex;align-items:center;gap:.4rem;background:var(--white);border:1.5px solid var(--c2);color:var(--c1);padding:.33rem .85rem;border-radius:8px;font-size:.77rem;font-weight:700}
+
+/* SECTION */
+.section{padding:3rem 5vw}
+.label{font-size:.72rem;letter-spacing:.13em;color:var(--c1);font-weight:700;margin-bottom:.4rem;text-transform:uppercase}
+.title{font-size:clamp(1.2rem,3.5vw,1.6rem);font-weight:800;color:var(--text1);margin-bottom:.4rem}
+.sub{color:var(--text3);font-size:.87rem;margin-bottom:1.8rem}
+
+/* SYMPTOMS / 診療内容 */
+.symptom-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.9rem}
+.symptom-card{background:var(--white);border-radius:var(--r);padding:1.2rem .8rem;text-align:center;box-shadow:var(--shadow);border-bottom:3px solid var(--c2);transition:transform .2s}
+.symptom-card:hover{transform:translateY(-4px)}
+.symptom-icon{font-size:1.8rem;display:block;margin-bottom:.5rem}
+.symptom-name{font-size:.81rem;font-weight:700;color:var(--text1)}
+
+/* REASONS */
+.reason-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.4rem}
+.reason-card{background:var(--white);border-radius:var(--r);padding:1.6rem;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform .2s}
+.reason-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--c1),var(--c2))}
+.reason-card:hover{transform:translateY(-3px)}
+.reason-num{font-size:2.5rem;font-weight:900;color:var(--c2);opacity:.15;position:absolute;top:.5rem;right:.8rem;line-height:1}
+.reason-icon{font-size:1.8rem;margin-bottom:.7rem}
+.reason-title{font-weight:800;color:var(--text1);margin-bottom:.4rem}
+.reason-body{font-size:.85rem;color:var(--text3);line-height:1.7}
+
+/* FLOW */
+.flow-bg{background:var(--bg)}
+.flow-steps{display:flex;flex-direction:column;gap:.8rem}
+.flow-step{display:flex;gap:1.2rem;align-items:flex-start;background:var(--white);padding:1.4rem;border-radius:var(--r);box-shadow:var(--shadow);opacity:0;transform:translateX(-20px);transition:opacity .5s,transform .5s}
+.flow-step.visible{opacity:1;transform:none}
+.step-num{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;flex-shrink:0}
+.step-title{font-weight:800;color:var(--text1);margin-bottom:.3rem}
+.step-body{font-size:.84rem;color:var(--text3);line-height:1.7}
+
+/* VOICES */
+.voices-bg{background:var(--bg)}
+.voice-list{display:flex;flex-direction:column;gap:1rem}
+.voice-card{background:var(--white);border-radius:var(--r);padding:1.4rem;box-shadow:var(--shadow);display:flex;gap:1rem;align-items:flex-start;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
+.voice-card.visible{opacity:1;transform:none}
+.voice-avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;flex-shrink:0}
+.voice-body{flex:1}
+.voice-meta{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.3rem}
+.voice-name{font-weight:700;font-size:.85rem;color:var(--text1)}
+.voice-stars{color:#FBBF24;font-size:.9rem}
+.voice-tag{background:var(--bg);color:var(--c1);font-size:.68rem;padding:.12rem .5rem;border-radius:999px;font-weight:700}
+.voice-text{font-size:.87rem;color:var(--text2);line-height:1.75}
+.voice-date{font-size:.7rem;color:var(--text3);margin-top:.4rem}
+.google-attr{text-align:right;font-size:.72rem;color:var(--text3);margin-top:1rem;display:flex;align-items:center;justify-content:flex-end;gap:.3rem}
+
+/* MENU */
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
+.menu-card{background:var(--white);border-radius:var(--r);padding:1.4rem;box-shadow:var(--shadow);border-top:3px solid var(--c2);transition:transform .2s}
+.menu-card:hover{transform:translateY(-3px)}
+.menu-name{font-weight:800;color:var(--text1);margin-bottom:.4rem}
+.menu-price{font-size:1.1rem;color:var(--c1);font-weight:900;margin-bottom:.3rem}
+.menu-desc{font-size:.8rem;color:var(--text3)}
+
+/* HOURS */
+.hours-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
+.hours-card{background:var(--white);border-radius:var(--r);padding:1.3rem;border-left:4px solid var(--c1)}
+.hours-title{font-weight:800;color:var(--text1);margin-bottom:.5rem}
+.hours-time{font-size:1.1rem;font-weight:900;color:var(--c1)}
+.hours-note{font-size:.78rem;color:var(--text3);margin-top:.3rem}
+
+/* STRENGTHS */
+.str-list{display:flex;flex-direction:column;gap:.6rem}
+.str-item{display:flex;align-items:center;gap:.8rem;background:var(--white);padding:.85rem 1.1rem;border-radius:var(--r);box-shadow:var(--shadow);transition:transform .15s}
+.str-item:hover{transform:translateX(4px)}
+.str-icon,.str-dot{font-size:1.2rem;flex-shrink:0}
+.str-dot{width:10px;height:10px;border-radius:50%;background:var(--c1);font-size:inherit}
+.str-text{font-size:.88rem;font-weight:600;color:var(--text1)}
+
+/* CTA */
+.cta-section{background:var(--c1);color:#fff;text-align:center;padding:3.5rem 5vw;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Ccircle cx='60' cy='60' r='50' fill='none' stroke='rgba(255,255,255,.05)' stroke-width='50'/%3E%3C/svg%3E") center/250px 250px}
+.cta-label{display:inline-block;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.28rem .85rem;font-size:.74rem;font-weight:700;letter-spacing:.06em;margin-bottom:.8rem}
+.cta-section h2{font-size:clamp(1.2rem,3.5vw,1.6rem);font-weight:900;margin-bottom:.5rem}
+.cta-section p{opacity:.9;margin-bottom:1.8rem;font-size:.9rem;max-width:400px;margin-left:auto;margin-right:auto}
+.cta-btn{display:inline-flex;align-items:center;gap:.5rem;background:#fff;color:var(--c1);font-weight:800;padding:1rem 2.4rem;border-radius:999px;text-decoration:none;font-size:.98rem;box-shadow:0 4px 20px rgba(0,0,0,.2);transition:transform .2s}
+.cta-btn:hover{transform:translateY(-2px)}
+.cta-btn::before{content:'✉️'}
+.cta-note{font-size:.75rem;opacity:.75;margin-top:.9rem}
+
+/* FOOTER */
+footer{background:#0A2540;color:rgba(255,255,255,.5);padding:2rem 5vw;text-align:center;font-size:.75rem;line-height:2.2}
+footer strong{color:#fff;font-size:.85rem}
+.footer-demo{display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;padding:.18rem .65rem;font-size:.68rem;margin-top:.5rem;opacity:.55}
+
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--c2),transparent);margin:0 5vw}
+
+/* FLOATING CTA */
+.float-cta{position:fixed;bottom:0;left:0;right:0;background:var(--c1);padding:.8rem 5vw;display:flex;align-items:center;justify-content:space-between;gap:.8rem;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.2)}
+.float-cta-text{color:#fff;font-size:.82rem;font-weight:700;line-height:1.3}
+.float-cta-text span{font-size:.7rem;opacity:.8;font-weight:400}
+.float-cta-btn{background:#7DD3FC;color:#0A2540;font-weight:800;padding:.65rem 1.4rem;border-radius:999px;text-decoration:none;font-size:.88rem;white-space:nowrap;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero>*{animation:fadeUp .6s ease both}
+.hero-tags{animation-delay:.1s}
+.hero h1{animation-delay:.2s}
+.hero-copy{animation-delay:.3s}
+.hero-google{animation-delay:.4s}
+.hero-btns{animation-delay:.5s}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+
+<div class="demo-banner">これは AI が自動生成した<strong>試作品</strong>です（制作デモ）</div>
+
+<nav>
+  <span class="nav-name">わくだ歯科<span class="nav-badge">予約受付中</span></span>
+  <a class="nav-cta" href="https://www.wakuda-shika.com/" target="_blank">ご予約はこちら</a>
+</nav>
+
+<div class="urgency">
+  <div class="urgency-dot"></div>
+  ネット予約受付中 — 痛みが気になる方はお早めにご相談ください
+  <div class="urgency-dot"></div>
+</div>
+
+<div class="hero">
+  <div class="hero-tags">
+    <span class="hero-tag">📍 浜松市中央区エリア</span>
+    <span class="hero-tag">🦷 歯科</span>
+  </div>
+  <h1>痛くない・怖くない<br><em>通いやすい</em>歯医者さん</h1>
+  <p class="hero-copy">お口の健康から始まる、豊かな毎日。痛みが苦手な方も安心して受けていただける丁寧な診療を心がけています。</p>
+  <div class="hero-google">
+    <div class="g-logo">G</div>
+    <span class="g-stars">★★★★★</span>
+    <span class="g-info"><strong>4.3</strong> （25件の口コミ）</span>
+  </div>
+  <div class="hero-btns">
+    <a class="btn-main" href="https://www.wakuda-shika.com/" target="_blank">ご予約・ご相談はこちら</a>
+    <a class="btn-sub" href="#voices">患者様の声を見る</a>
+  </div>
+</div>
+
+<div class="stats-strip">
+  <div class="stats-grid">
+    <div>
+      <span class="stat-num" data-count="25">25</span>
+      <span class="stat-unit">件</span>
+      <div class="stat-label">Googleロ コミ</div>
+    </div>
+    <div class="stat-divider">
+      <span class="stat-num" data-count="4">4.3</span>
+      <span class="stat-unit">★</span>
+      <div class="stat-label">平均評価</div>
+    </div>
+    <div class="stat-divider">
+      <span class="stat-num" data-count="100">100+</span>
+      <span class="stat-unit">名</span>
+      <div class="stat-label">地域で信頼</div>
+    </div>
+  </div>
+</div>
+
+<div class="trust-strip">
+  <div class="trust-scroll">
+    <div class="trust-badge">🦷 痛みに配慮した治療</div>
+    <div class="trust-badge">👨‍⚕️ 丁寧なカウンセリング</div>
+    <div class="trust-badge">😊 初めての方歓迎</div>
+    <div class="trust-badge">👶 キッズスペース有</div>
+    <div class="trust-badge">✨ 予防・定期検診に対応</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="label">Treatments</div>
+  <div class="title">こんなお悩みありませんか？</div>
+  <div class="sub">気になる症状はお気軽にご相談ください（診療内容）</div>
+  <div class="symptom-grid">
+        <div class="symptom-card"><span class="symptom-icon">🦷</span><div class="symptom-name">虫歯・歯の痛み</div></div>
+    <div class="symptom-card"><span class="symptom-icon">🩸</span><div class="symptom-name">歯周病・歯ぐきの腫れ</div></div>
+    <div class="symptom-card"><span class="symptom-icon">✨</span><div class="symptom-name">歯の黄ばみ・ホワイトニング</div></div>
+    <div class="symptom-card"><span class="symptom-icon">😬</span><div class="symptom-name">歯並び・矯正</div></div>
+    <div class="symptom-card"><span class="symptom-icon">👶</span><div class="symptom-name">お子さまの歯・小児歯科</div></div>
+    <div class="symptom-card"><span class="symptom-icon">🦷</span><div class="symptom-name">親知らずの相談</div></div>
+    <div class="symptom-card"><span class="symptom-icon">💨</span><div class="symptom-name">口臭が気になる</div></div>
+    <div class="symptom-card"><span class="symptom-icon">🔧</span><div class="symptom-name">入れ歯・インプラント</div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="label">Why Choose Us</div>
+  <div class="title">選ばれ続ける理由</div>
+  <div class="sub">浜松市中央区エリアで多くの患者様に信頼をいただいています</div>
+  <div class="reason-grid">
+        <div class="reason-card">
+      <div class="reason-icon">🦷</div>
+      <div class="reason-title">痛みに配慮した丁寧な診療</div>
+      <div class="reason-body">麻酔の効かせ方から治療の進め方まで、患者様の痛みを最小限にする工夫をしています。</div>
+    </div>
+    <div class="reason-card">
+      <div class="reason-icon">📋</div>
+      <div class="reason-title">分かりやすい説明と同意</div>
+      <div class="reason-body">治療方針・費用・期間をしっかりご説明してから進めます。疑問は何でもお聞きください。</div>
+    </div>
+    <div class="reason-card">
+      <div class="reason-icon">🔁</div>
+      <div class="reason-title">定期健診で口腔健康を維持</div>
+      <div class="reason-body">治療が終わっても安心の定期メンテナンス。虫歯・歯周病の予防で健康な歯を長持ちさせます。</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section flow-bg">
+  <div class="label">First Visit</div>
+  <div class="title">初めての方へ</div>
+  <div class="sub">ご予約から治療・メンテナンスまで、安心してお任せください</div>
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="step-num">1</div>
+      <div><div class="step-title">ご予約・お問い合わせ</div><div class="step-body">お電話またはWebフォームからご予約ください。「どこが気になるか」だけお伝えいただければ大丈夫です。</div></div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">2</div>
+      <div><div class="step-title">問診・お口の検査</div><div class="step-body">気になる症状やご希望を丁寧にお聞きし、お口の状態をしっかり確認。治療方針をわかりやすくご説明します。</div></div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">3</div>
+      <div><div class="step-title">治療・定期検診のご案内</div><div class="step-body">納得いただいた上で治療を進めます。治療後は再発を防ぐための定期検診・予防ケアもご提案します。</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section voices-bg" id="voices">
+  <div class="label">Reviews</div>
+  <div class="title">患者様の声</div>
+  <div class="sub">Googleマップ 25件の口コミより抜粋</div>
+  <div class="voice-list">
+        <div class="voice-card">
+      <div class="voice-avatar">T</div>
+      <div class="voice-body">
+        <div class="voice-meta">
+          <span class="voice-name">30代 女性</span>
+          <span class="voice-stars">★★★★☆</span>
+          <span class="voice-tag">定期健診</span>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">メニュー: クリーニング</div>
+        <div class="voice-text">「丁寧で痛くない治療をしてもらえます。子どもも怖がらずに通えています。」</div>
+        <div class="voice-date">Google マップ 口コミより</div>
+      </div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-avatar">N</div>
+      <div class="voice-body">
+        <div class="voice-meta">
+          <span class="voice-name">40代 男性</span>
+          <span class="voice-stars">★★★★☆</span>
+          <span class="voice-tag">インプラント</span>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">メニュー: インプラント治療</div>
+        <div class="voice-text">「丁寧な説明で安心して治療を受けられました。術後の経過も良好で感謝しています。」</div>
+        <div class="voice-date">Google マップ 口コミより</div>
+      </div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-avatar">A</div>
+      <div class="voice-body">
+        <div class="voice-meta">
+          <span class="voice-name">50代 女性</span>
+          <span class="voice-stars">★★★★☆</span>
+          <span class="voice-tag">矯正</span>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">メニュー: 歯列矯正</div>
+        <div class="voice-text">「説明が分かりやすく、費用の見通しも明確でした。スタッフの対応が皆さん親切です。」</div>
+        <div class="voice-date">Google マップ 口コミより</div>
+      </div>
+    </div>
+  </div>
+  <div class="google-attr">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+    Google マップ 口コミより
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="label">Menu &amp; Price</div>
+  <div class="title">診療メニュー・料金</div>
+  <div class="sub">初めての方も安心の料金設定（保険診療・自費診療）</div>
+  <div class="menu-grid">
+        <div class="menu-card"><div class="menu-name">一般歯科（虫歯治療）</div><div class="menu-price">保険適用</div><div class="menu-desc">痛みに配慮した丁寧な治療</div></div>
+    <div class="menu-card"><div class="menu-name">予防歯科・クリーニング</div><div class="menu-price">3,000円〜</div><div class="menu-desc">定期検診でお口の健康を維持</div></div>
+    <div class="menu-card"><div class="menu-name">ホワイトニング</div><div class="menu-price">15,000円〜</div><div class="menu-desc">自然な白さで印象アップ</div></div>
+    <div class="menu-card"><div class="menu-name">小児歯科</div><div class="menu-price">保険適用</div><div class="menu-desc">お子さまも怖がらない優しい診療</div></div>
+    <div class="menu-card"><div class="menu-name">歯列矯正</div><div class="menu-price">要相談</div><div class="menu-desc">目立ちにくい矯正もご相談ください</div></div>
+    <div class="menu-card"><div class="menu-name">インプラント・入れ歯</div><div class="menu-price">要相談</div><div class="menu-desc">失った歯の機能を取り戻す</div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="label">Access &amp; Hours</div>
+  <div class="title">診療時間・アクセス</div>
+  <div class="sub">浜松市中央区エリアにてお待ちしております</div>
+  <div class="hours-grid">
+    <div class="hours-card">
+      <div class="hours-title">🕐 診療時間</div>
+      <div class="hours-time">9:00〜18:00</div>
+      <div class="hours-note">※昼休み・最終受付は要確認</div>
+    </div>
+    <div class="hours-card">
+      <div class="hours-title">📅 休診日</div>
+      <div class="hours-time">日曜・祝日</div>
+      <div class="hours-note">土曜診療あり（要確認）</div>
+    </div>
+    <div class="hours-card">
+      <div class="hours-title">📍 所在地</div>
+      <div class="hours-time" style="font-size:.9rem">浜松市中央区エリア</div>
+      <div class="hours-note">詳細はお問い合わせください</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="label">Strengths</div>
+  <div class="title">当院の特長</div>
+  <div class="str-list">
+        <div class="str-item"><div class="str-dot"></div><div class="str-text">痛みに配慮した丁寧な診療</div></div>
+    <div class="str-item"><div class="str-dot"></div><div class="str-text">分かりやすい説明と事前同意</div></div>
+    <div class="str-item"><div class="str-dot"></div><div class="str-text">定期健診・クリーニングで予防歯科</div></div>
+    <div class="str-item"><div class="str-dot"></div><div class="str-text">小児から高齢者まで幅広く対応</div></div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <div class="cta-label">ネット予約・無料相談受付中</div>
+  <h2>まずはお気軽にお問い合わせください</h2>
+  <p>「歯医者が苦手」「久しぶりで不安」そんな方こそ、ぜひご相談ください。</p>
+  <a class="cta-btn" href="https://www.wakuda-shika.com/" target="_blank">ご予約・お問い合わせはこちら</a>
+  <p class="cta-note">📩 メールでのお問い合わせも歓迎しております</p>
+</div>
+
+<footer>
+  <strong>わくだ歯科</strong><br>
+  浜松市中央区エリア ・ 歯科<br>
+  <span class="footer-demo">※試作品 — このページはAIが自動生成した制作デモです</span>
+</footer>
+
+<div class="float-cta">
+  <div class="float-cta-text">
+    わくだ歯科<br>
+    <span>ご予約・無料相談はこちら</span>
+  </div>
+  <a class="float-cta-btn" href="https://www.wakuda-shika.com/" target="_blank">今すぐ予約</a>
+</div>
+
+<script>
+const prog = document.getElementById('prog');
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  prog.style.width = pct + '%';
+});
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
+}, {threshold:.15});
+document.querySelectorAll('.voice-card,.flow-step').forEach(el => io.observe(el));
+
+function animateCount(el) {
+  const raw = el.dataset.count;
+  const target = parseFloat(raw);
+  const isFloat = raw && raw.includes('.');
+  const isPlus = target > 99;
+  const duration = 1200;
+  const start = performance.now();
+  const update = (now) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = target * eased;
+    el.textContent = isFloat ? current.toFixed(1) : (Math.floor(current) + (isPlus ? '+' : ''));
+    if (progress < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+const statsObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { animateCount(e.target); statsObs.unobserve(e.target); } });
+}, {threshold:.5});
+document.querySelectorAll('.stat-num[data-count]').forEach(el => statsObs.observe(el));
+</script>
+</body>
+</html>
